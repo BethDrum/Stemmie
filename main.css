@@ -127,12 +127,19 @@ body {
 
 /* Button Wrap Container */
 .button-wrap {
-  position: relative;
-  z-index: 2;
-  border-radius: 50px;
-  background: transparent;
-  pointer-events: none;
-  transition: all var(--anim--hover-time) var(--anim--hover-ease);
+    position: relative;
+    display: inline-block;
+    width: fit-content;
+
+    z-index: 2;
+
+    border-radius: 50px;
+
+    background: transparent;
+
+    pointer-events: none;
+
+    transition: all var(--anim--hover-time) var(--anim--hover-ease);
 }
 
 /* Button Shadow Container */
