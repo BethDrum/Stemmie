@@ -84,11 +84,14 @@ body {
 }
 
 .hero-subtitle h3 {
-    padding: 3rem;
+    padding: 1rem;
+    color: white;
+    font-family: inherit;
+    font-weight: inherit;
 }
 
 .hero-content p {
-    margin-top: 1rem;
+    margin-top: 2rem;
     font-size: 1.4rem;
     opacity: 0.8;
 }
@@ -97,13 +100,81 @@ body {
 
 #content {
     min-height: 200vh;
-    color: black;
+    color: rgb(253, 250, 250);
     padding: 100px 40px;
+     font-family: inherit;
+    font-weight: inherit;
 }
 
 .container {
     max-width: 1200px;
     margin: auto;
+}
+
+.wotw-card {
+    max-width: 1000px;
+    padding: 2rem;
+    border: 1px solid rgba(120, 205, 215, 0.4);
+    border-radius: 20px;
+    background: rgba(28, 18, 70, 0.55);
+    box-shadow: 0 0 24px rgba(78, 154, 201, 0.18);
+    backdrop-filter: blur(10px);
+    transition: box-shadow 250ms ease, border-color 250ms ease, transform 250ms ease;
+}
+
+.wotw-card:hover {
+    border-color: rgba(120, 205, 215, 0.8);
+    box-shadow: 0 0 18px rgba(120, 205, 215, 0.55), 0 0 42px rgba(78, 154, 201, 0.35);
+    transform: translateY(-3px);
+}
+
+.wotw-card h2 {
+    margin-bottom: 1rem;
+}
+
+.wotw-card-content {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.wotw-card-image {
+    display: block;
+    width: min(40%, 240px);
+    flex-shrink: 0;
+    max-height: 320px;
+    object-fit: cover;
+    border: 1px solid rgba(120, 205, 215, 0.4);
+    border-radius: 12px;
+}
+
+.wotw-card-text {
+    flex: 1;
+}
+
+.wotw-card-text h3 {
+    margin-bottom: 1rem;
+    line-height: 1.5;
+}
+
+.wotw-card-text h3 span {
+    display: block;
+    margin-top: 0.75rem;
+}
+
+.wotw-card-text p {
+    line-height: 1.7;
+}
+
+@media (max-width: 600px) {
+    .wotw-card-content {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .wotw-card-image {
+        width: min(100%, 240px);
+    }
 }
 
 /*-----------GLASS BUTTON ------------*/
