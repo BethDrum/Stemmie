@@ -240,9 +240,10 @@ contactPlanet.userData.baseX = contactPlanet.position.x
 formPlanet.userData.baseX = formPlanet.position.x
 
 homePlanet.userData.url = "index.html";
-aboutPlanet.userData.url = "/blog/events.html";
-projectsPlanet.userData.url = "/events/blogs.html";
-contactPlanet.userData.url = "/quiz/quiz.html";
+projectsPlanet.userData.url = "/quiz/quiz.html";
+aboutPlanet.userData.url = "/blog/blog.html";
+contactPlanet.userData.url = "/events/events.html";
+formPlanet.userData.url = "/quiz/quiz.html"
 /* ---------- INTERACTION ---------- */
 
 const raycaster =
