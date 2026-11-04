@@ -19,7 +19,9 @@ body {
         );
 
     color: white;
-    font-family: Arial, sans-serif;
+    font-family: "Share Tech Mono", monospace;
+    font-weight: 400;
+    font-style: normal;
 }
 
 /*----------NAVBAR -------------------*/
@@ -39,21 +41,14 @@ body {
 
 .planet-labels {
     position: fixed;
-
-    top: 105px;
-    right: 40px;
-
-    width: 450px;
-
+    top: 125px;
+    right: 70px;
+    width: 360px;
     display: flex;
     justify-content: space-between;
-
     color: white;
-
     font-size: 0.8rem;
-
     z-index: 10000;
-
     pointer-events: none;
 }
 /* ---------- HERO ---------- */
@@ -85,6 +80,7 @@ body {
 
 .hero-content h1 {
     font-size: 3rem;
+    font-weight: 390;
 }
 
 .hero-content p {
@@ -97,7 +93,6 @@ body {
 
 #content {
     min-height: 200vh;
-    background: white;
     color: black;
     padding: 100px 40px;
 }
@@ -224,7 +219,6 @@ button span {
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
-  font-family: "Inter", sans-serif;
   letter-spacing: -0.05em;
   font-weight: 500;
   font-size: 1em;
