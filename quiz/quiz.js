@@ -3,14 +3,22 @@ const questions = [
     "question": "Which kind of task sounds most like you?",
     "uxAnswer": "Making an app or website easier and more enjoyable to use",
     "uxTotal": "1",
+    "answer1Image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0e/EW7_Eunos_MRT_Station_exterior_202412.jpg/500px-EW7_Eunos_MRT_Station_exterior_202412.jpg?utm_source=en.wikipedia.org&utm_campaign=parser&utm_content=thumbnail",
     "engineeringAnswer": "Building or fixing something hands-on",
     "engineeringTotal": "2",
+    "answer2Image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fa/Blueberry_frozen_yoghurt_%284937999312%29.jpg/330px-Blueberry_frozen_yoghurt_%284937999312%29.jpg?utm_source=en.wikipedia.org&utm_campaign=parser&utm_content=thumbnail",
     "aiAnswer": "Teaching a computer to spot patterns or solve problems",
     "aiTotal": "3",
+    "answer3Image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f0/An_artist%27s_impression_of_a_Pioneer_spacecraft_on_its_way_to_interstellar_space.jpg/330px-An_artist%27s_impression_of_a_Pioneer_spacecraft_on_its_way_to_interstellar_space.jpg?utm_source=en.wikipedia.org&utm_campaign=parser&utm_content=thumbnail",
     "dataAnswer": "Finding useful patterns in numbers and information",
     "dataTotal": "4",
+    "answer4Image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0e/EW7_Eunos_MRT_Station_exterior_202412.jpg/500px-EW7_Eunos_MRT_Station_exterior_202412.jpg?utm_source=en.wikipedia.org&utm_campaign=parser&utm_content=thumbnail",
     "managementAnswer": "Bringing people together to plan and deliver a project",
-    "managementTotal": "5"
+    "managementTotal": "5",
+    "answer5Image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fa/Blueberry_frozen_yoghurt_%284937999312%29.jpg/330px-Blueberry_frozen_yoghurt_%284937999312%29.jpg?utm_source=en.wikipedia.org&utm_campaign=parser&utm_content=thumbnail",
+    "cyberAnswer": "Investigating cyber threats and protecting systems from hackers",
+    "cyberTotal": "6",
+    "answer6Image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f0/An_artist%27s_impression_of_a_Pioneer_spacecraft_on_its_way_to_interstellar_space.jpg/330px-An_artist%27s_impression_of_a_Pioneer_spacecraft_on_its_way_to_interstellar_space.jpg?utm_source=en.wikipedia.org&utm_campaign=parser&utm_content=thumbnail"
   },
   {
     "question": "What is your ideal work environment?",
@@ -23,7 +31,9 @@ const questions = [
     "dataAnswer": "On my own",
     "dataTotal": "4",
     "managementAnswer": "On the move",
-    "managementTotal": "5"
+    "managementTotal": "5",
+    "cyberAnswer": "A high-tech security operations centre",
+    "cyberTotal": "6"
   },
   {
     "question": "What do you like to do in your spare time?",
@@ -36,7 +46,9 @@ const questions = [
     "dataAnswer": "Watching TV",
     "dataTotal": "4",
     "managementAnswer": "Reading",
-    "managementTotal": "5"
+    "managementTotal": "5",
+    "cyberAnswer": "Solving mysteries and finding hidden clues",
+    "cyberTotal": "6"
   },
   {
     "question": "What describes you best?",
@@ -49,7 +61,9 @@ const questions = [
     "dataAnswer": "I like analyzing data and finding patterns",
     "dataTotal": "4",
     "managementAnswer": "I enjoy leading teams and making decisions",
-    "managementTotal": "5"
+    "managementTotal": "5",
+    "cyberAnswer": "I'm curious, observant and love figuring out how things work",
+    "cyberTotal": "6"
   },
   {
     "question": "What do you find most satisfying?",
@@ -62,7 +76,9 @@ const questions = [
     "dataAnswer": "Organising and interpreting data",
     "dataTotal": "4",
     "managementAnswer": "Turning small ideas into big results",
-    "managementTotal": "5"
+    "managementTotal": "5",
+    "cyberAnswer": "Protecting people and stopping cyber attacks",
+    "cyberTotal": "6"
   },
   {
     "question": "How would your friends describe you?",
@@ -75,7 +91,9 @@ const questions = [
     "dataAnswer": "Detail-oriented and logical",
     "dataTotal": "4",
     "managementAnswer": "Confident and decisive",
-    "managementTotal": "5"
+    "managementTotal": "5",
+    "cyberAnswer": "Resourceful, curious and alert",
+    "cyberTotal": "6"
   },
   {
     "question": "What is most important to you?",
@@ -88,24 +106,28 @@ const questions = [
     "dataAnswer": "Always keep learning and improving my skills",
     "dataTotal": "4",
     "managementAnswer": "Interacting with people and leading ideas",
-    "managementTotal": "5"
+    "managementTotal": "5",
+    "cyberAnswer": "Making the digital world a safer place",
+    "cyberTotal": "6"
   }
-]
+];
 
-const categories = ['ux', 'engineering', 'ai', 'data', 'management'];
+const categories = ['ux', 'engineering', 'ai', 'data', 'management', 'cyber'];
 const categoryNames = {
   ux: 'UX design',
   engineering: 'Engineering',
   ai: 'Artificial intelligence',
   data: 'Data science',
-  management: 'Technology management'
+  management: 'Technology management',
+  cyber: 'Cybersecurity'
 };
 const categoryDescriptions = {
   ux: 'You are best suited to UX.',
   engineering: 'You are best suited to Engineering.',
   ai: 'You are best suited to Artificial Intelligence.',
   data: 'You are best suited to Data Science.',
-  management: 'You are best suited to Technology Management.'
+  management: 'You are best suited to Technology Management.',
+  cyber: 'You are best suited to Cybersecurity.'
 };
 const optionLabels = document.querySelectorAll('.option span');
 const optionInputs = document.querySelectorAll('input[name="option"]');
@@ -117,6 +139,7 @@ const result = document.querySelector('.result');
 const totalQuestions = questions.length;
 let currentQuestion = 0;
 let selectedAnswersData = [];
+result.hidden = true;
 
 function generateQuestion(index) {
   const question = questions[index];
@@ -126,6 +149,15 @@ function generateQuestion(index) {
     optionLabels[optionIndex].textContent = question[`${category}Answer`];
     optionInputs[optionIndex].value = category;
     optionInputs[optionIndex].checked = selectedAnswersData[index] === category;
+
+    const image = document.querySelector(`#option${optionIndex + 1}Image`);
+    const imageSource = question[`answer${optionIndex + 1}Image`];
+    image.hidden = false;
+    image.style.visibility = imageSource ? 'visible' : 'hidden';
+    if (imageSource) {
+      image.src = imageSource;
+    }
+    image.alt = question[`${category}Answer`];
   });
 
   previousButton.disabled = index === 0;
@@ -138,16 +170,17 @@ function showResult() {
   const highestScore = Math.max(...Object.values(scores));
   const bestMatches = categories.filter(category => scores[category] === highestScore);
   const matchNames = bestMatches.map(category => categoryNames[category]).join(' and ');
-  const matchDescriptions = bestMatches
-    .map(category => `<p>${categoryDescriptions[category]}</p>`)
-    .join('');
+  const resultSentence = bestMatches.length > 1
+    ? `You are equally suited to ${matchNames}.`
+    : categoryDescriptions[bestMatches[0]];
 
   container.hidden = true;
+  result.hidden = false;
   result.innerHTML = `
-    <h1>Your best match: ${matchNames}</h1>
-    ${matchDescriptions}
+    <h1>${resultSentence}</h1>
     <button class="restart" type="button">Restart quiz</button>
   `;
+  result.scrollIntoView({ behavior: 'smooth', block: 'start' });
 }
 
 function loadNextQuestion() {
@@ -182,6 +215,7 @@ function restartQuiz() {
   currentQuestion = 0;
   selectedAnswersData = [];
   result.replaceChildren();
+  result.hidden = true;
   container.hidden = false;
   generateQuestion(currentQuestion);
 }

@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <head>
     <title>Tech Quiz</title>
+    <link rel="stylesheet" href="style.css">
+    <script defer src="quiz.js"></script>
 </head>
 
 <body>
@@ -8,35 +10,48 @@
     <div class="quiz-container">
         <div class="title">Which tech field suits you best?</div>
         <div id="question" class="question"></div>
-        <label class="option">
-            <input type="radio" name="option" value="1" />
-            <span class="option1"></span>
-        </label>
-        <label class="option">
-            <input type="radio" name="option" value="2" />
-            <span class="option2"></span>
-        </label>
-        <label class="option">
-            <input type="radio" name="option" value="3" />
-            <span class="option3"></span>
-        </label>
+        <div class="row">
+            <label class="option">
+                <input type="radio" name="option" value="1" />
+                <span class="option1"></span>
+                <img id="option1Image" alt="Option 1" width="auto" height="100"/>    
+            </label>
+            <label class="option">
+                <input type="radio" name="option" value="2" />
+                <span class="option2"></span>
+                <img id="option2Image" alt="Option 2" width="auto" height="100"/>
+            </label>
+            <label class="option">
+                <input type="radio" name="option" value="3" />
+                <span class="option3"></span>
+                <img id="option3Image" alt="Option 3" width="auto" height="100"/>
+            </label>
+        </div>
+        <div class="row">
         <label class="option">
             <input type="radio" name="option" value="4" />
             <span class="option4"></span>
+            <img id="option4Image" alt="Option 4" width="auto" height="100"/>
         </label>
         <label class="option">
             <input type="radio" name="option" value="5" />
             <span class="option5"></span>
+            <img id="option5Image" alt="Option 5" width="auto" height="100"/>
         </label>
+        <label class="option">
+            <input type="radio" name="option" value="6" />
+            <span class="option6"></span>
+            <img id="option6Image" alt="Option 6" width="auto" height="100"/>
+        </label>
+        </div>
         <!-- Buttons -->
         <div class="controls">
-            <button class="previous">Previous</button>
-            <button class="next">Next</button>
+            <button class="previous" type="button">Previous</button>
+            <button class="next" type="button">Next</button>
         </div>
     </div>
 
     <div class="result">
 
     </div>
-    <script src="quiz.js" defer></script>
 </body>
