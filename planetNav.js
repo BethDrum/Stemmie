@@ -240,8 +240,8 @@ contactPlanet.userData.baseX = contactPlanet.position.x
 formPlanet.userData.baseX = formPlanet.position.x
 
 homePlanet.userData.url = "index.html";
-aboutPlanet.userData.url = "/blog/blog.html";
-projectsPlanet.userData.url = "/events/events.html";
+aboutPlanet.userData.url = "/blog/events.html";
+projectsPlanet.userData.url = "/events/blogs.html";
 contactPlanet.userData.url = "/quiz/quiz.html";
 /* ---------- INTERACTION ---------- */
 
