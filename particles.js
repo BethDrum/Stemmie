@@ -59,7 +59,7 @@ geometry.setAttribute(
 
 const material =
     new THREE.PointsMaterial({
-        color: '#ffffff',
+        color: '#FEFFE0',
         size: 0.04,
         transparent: true
     })
