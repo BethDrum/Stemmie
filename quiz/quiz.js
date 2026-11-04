@@ -1,15 +1,15 @@
 const questions = [
   {
-    "question": "Which kind of task sounds most like you?",
-    "uxAnswer": "Making an app or website easier and more enjoyable to use",
+    "question": "What is your favourite school subject?",
+    "uxAnswer": "Art",
     "uxTotal": "1",
-    "engineeringAnswer": "Building or fixing something hands-on",
+    "engineeringAnswer": "Computing",
     "engineeringTotal": "2",
-    "aiAnswer": "Teaching a computer to spot patterns or solve problems",
+    "aiAnswer": "Science",
     "aiTotal": "3",
-    "dataAnswer": "Finding useful patterns in numbers and information",
+    "dataAnswer": "Mathematics",
     "dataTotal": "4",
-    "managementAnswer": "Bringing people together to plan and deliver a project",
+    "managementAnswer": "Business",
     "managementTotal": "5"
   },
   {
