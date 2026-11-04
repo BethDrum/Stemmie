@@ -83,6 +83,10 @@ body {
     font-weight: 390;
 }
 
+.hero-subtitle h3 {
+    padding: 1rem;
+}
+
 .hero-content p {
     margin-top: 1rem;
     font-size: 1.4rem;
