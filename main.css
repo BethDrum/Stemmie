@@ -42,8 +42,8 @@ body {
 .planet-labels {
     position: fixed;
     top: 125px;
-    right: 70px;
-    width: 360px;
+    right: 10px;
+    width: 470px;
     display: flex;
     justify-content: space-between;
     color: white;

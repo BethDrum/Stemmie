@@ -90,7 +90,7 @@ const homePlanet = new THREE.Mesh(
     homeMaterial
 )
 
-homePlanet.position.x = -21
+homePlanet.position.x = -28
 
 scene.add(homePlanet)
 
@@ -115,7 +115,7 @@ const aboutPlanet = new THREE.Mesh(
     aboutMaterial
 )
 
-aboutPlanet.position.x = -7
+aboutPlanet.position.x = -14
 
 scene.add(aboutPlanet)
 
@@ -141,7 +141,7 @@ const projectsPlanet = new THREE.Mesh(
     projectsMaterial
 )
 
-projectsPlanet.position.x = 7
+projectsPlanet.position.x = 0
 
 scene.add(projectsPlanet)
 
@@ -166,7 +166,7 @@ const contactPlanet = new THREE.Mesh(
     contactMaterial
 )
 
-contactPlanet.position.x = 23
+contactPlanet.position.x = 15
 
 scene.add(contactPlanet)
 
@@ -206,12 +206,43 @@ ring.scale.set(2, 2, 2)
 
 contactPlanet.add(ring)
 
+/**-----------URANUS---------- */
+const uranusTexture = textureLoader.load(
+    '/textures/uranus.jpg'
+)
+
+uranusTexture.colorSpace = THREE.SRGBColorSpace
+uranusTexture.anisotropy = renderer.capabilities.getMaxAnisotropy()
+
+const formMaterial =
+    new THREE.MeshStandardMaterial({
+        map: uranusTexture,
+        roughness: 0.8,
+        metalness: 0.15
+    })
+
+const formPlanet = new THREE.Mesh(
+    new THREE.SphereGeometry(1.8, 64, 64),
+    formMaterial
+)
+
+formPlanet.position.x = 30
+
+scene.add(formPlanet)
+console.log(formPlanet.position);
+
+
 /**--------------SET OG POSITIONS-------------- */
 homePlanet.userData.baseX = homePlanet.position.x
 aboutPlanet.userData.baseX = aboutPlanet.position.x
 projectsPlanet.userData.baseX = projectsPlanet.position.x
 contactPlanet.userData.baseX = contactPlanet.position.x
+formPlanet.userData.baseX = formPlanet.position.x
 
+homePlanet.userData.url = "index.html";
+aboutPlanet.userData.url = "/blog/blog.html";
+projectsPlanet.userData.url = "/events/events.html";
+contactPlanet.userData.url = "/quiz/quiz.html";
 /* ---------- INTERACTION ---------- */
 
 const raycaster =
@@ -229,71 +260,35 @@ const planets = [
     homePlanet,
     aboutPlanet,
     projectsPlanet,
-    contactPlanet
+    contactPlanet,
+    formPlanet
 ]
 
 renderer.domElement.addEventListener(
     'click',
-    event => {
+    (event) => {
 
-        const rect =
-            renderer.domElement.getBoundingClientRect()
+        const rect = renderer.domElement.getBoundingClientRect();
 
         mouse.x =
-            ((event.clientX - rect.left)
-                / rect.width) * 2 - 1
+            ((event.clientX - rect.left) / rect.width) * 2 - 1;
 
         mouse.y =
-            -((event.clientY - rect.top)
-                / rect.height) * 2 + 1
+            -((event.clientY - rect.top) / rect.height) * 2 + 1;
 
-        raycaster.setFromCamera(
-            mouse,
-            camera
-        )
+        raycaster.setFromCamera(mouse, camera);
 
-        const intersects =
-            raycaster.intersectObjects([
-                homePlanet,
-                aboutPlanet,
-                projectsPlanet,
-                contactPlanet
-            ])
+        const intersects = raycaster.intersectObjects(planets);
 
-        if (!intersects.length) return
+        if (!intersects.length) return;
 
-        const target =
-            intersects[0].object
+        const clickedPlanet = intersects[0].object;
 
-        if (target === homePlanet)
-            document
-                .querySelector('#hero')
-                ?.scrollIntoView({
-                    behavior: 'smooth'
-                })
-
-        if (target === aboutPlanet)
-            document
-                .querySelector('#about')
-                ?.scrollIntoView({
-                    behavior: 'smooth'
-                })
-
-        if (target === projectsPlanet)
-            document
-                .querySelector('#projects')
-                ?.scrollIntoView({
-                    behavior: 'smooth'
-                })
-
-        if (target === contactPlanet)
-            document
-                .querySelector('#contact')
-                ?.scrollIntoView({
-                    behavior: 'smooth'
-                })
+        if (clickedPlanet.userData.url) {
+            window.location.href = clickedPlanet.userData.url;
+        }
     }
-)
+);
 
 /* ---------- HOVER ---------- */
 
