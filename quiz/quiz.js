@@ -1,15 +1,15 @@
 const questions = [
   {
-    "question": "What is your favourite subject in school?",
-    "uxAnswer": "Art",
+    "question": "Which kind of task sounds most like you?",
+    "uxAnswer": "Making an app or website easier and more enjoyable to use",
     "uxTotal": "1",
-    "engineeringAnswer": "Computing",
+    "engineeringAnswer": "Building or fixing something hands-on",
     "engineeringTotal": "2",
-    "aiAnswer": "Science",
+    "aiAnswer": "Teaching a computer to spot patterns or solve problems",
     "aiTotal": "3",
-    "dataAnswer": "Maths",
+    "dataAnswer": "Finding useful patterns in numbers and information",
     "dataTotal": "4",
-    "managementAnswer": "Business",
+    "managementAnswer": "Bringing people together to plan and deliver a project",
     "managementTotal": "5"
   },
   {
@@ -91,3 +91,106 @@ const questions = [
     "managementTotal": "5"
   }
 ]
+
+const categories = ['ux', 'engineering', 'ai', 'data', 'management'];
+const categoryNames = {
+  ux: 'UX design',
+  engineering: 'Engineering',
+  ai: 'Artificial intelligence',
+  data: 'Data science',
+  management: 'Technology management'
+};
+const categoryDescriptions = {
+  ux: 'You are best suited to UX.',
+  engineering: 'You are best suited to Engineering.',
+  ai: 'You are best suited to Artificial Intelligence.',
+  data: 'You are best suited to Data Science.',
+  management: 'You are best suited to Technology Management.'
+};
+const optionLabels = document.querySelectorAll('.option span');
+const optionInputs = document.querySelectorAll('input[name="option"]');
+const container = document.querySelector('.quiz-container');
+const questionEl = document.querySelector('.question');
+const nextButton = document.querySelector('.next');
+const previousButton = document.querySelector('.previous');
+const result = document.querySelector('.result');
+const totalQuestions = questions.length;
+let currentQuestion = 0;
+let selectedAnswersData = [];
+
+function generateQuestion(index) {
+  const question = questions[index];
+  questionEl.textContent = `${index + 1}. ${question.question}`;
+
+  categories.forEach((category, optionIndex) => {
+    optionLabels[optionIndex].textContent = question[`${category}Answer`];
+    optionInputs[optionIndex].value = category;
+    optionInputs[optionIndex].checked = selectedAnswersData[index] === category;
+  });
+
+  previousButton.disabled = index === 0;
+  nextButton.textContent = index === totalQuestions - 1 ? 'See result' : 'Next';
+}
+
+function showResult() {
+  const scores = Object.fromEntries(categories.map(category => [category, 0]));
+  selectedAnswersData.forEach(category => scores[category]++);
+  const highestScore = Math.max(...Object.values(scores));
+  const bestMatches = categories.filter(category => scores[category] === highestScore);
+  const matchNames = bestMatches.map(category => categoryNames[category]).join(' and ');
+  const matchDescriptions = bestMatches
+    .map(category => `<p>${categoryDescriptions[category]}</p>`)
+    .join('');
+
+  container.hidden = true;
+  result.innerHTML = `
+    <h1>Your best match: ${matchNames}</h1>
+    ${matchDescriptions}
+    <button class="restart" type="button">Restart quiz</button>
+  `;
+}
+
+function loadNextQuestion() {
+  const selectedOption = document.querySelector('input[name="option"]:checked');
+
+  if (!selectedOption) {
+    alert('Please select an option.');
+    return;
+  }
+
+  selectedAnswersData[currentQuestion] = selectedOption.value;
+
+  if (currentQuestion === totalQuestions - 1) {
+    showResult();
+    return;
+  }
+
+  currentQuestion++;
+  generateQuestion(currentQuestion);
+}
+
+function loadPreviousQuestion() {
+  if (currentQuestion === 0) {
+    return;
+  }
+
+  currentQuestion--;
+  generateQuestion(currentQuestion);
+}
+
+function restartQuiz() {
+  currentQuestion = 0;
+  selectedAnswersData = [];
+  result.replaceChildren();
+  container.hidden = false;
+  generateQuestion(currentQuestion);
+}
+
+generateQuestion(currentQuestion);
+nextButton.addEventListener('click', loadNextQuestion);
+previousButton.addEventListener('click', loadPreviousQuestion);
+result.addEventListener('click', event => {
+  if (event.target.matches('.restart')) {
+    restartQuiz();
+  }
+});
