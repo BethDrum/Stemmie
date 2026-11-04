@@ -8,6 +8,14 @@
     <link rel="stylesheet" href="main.css">
 </head>
 <body>
+    <div id="planet-nav"></div>
+
+    <div class="planet-labels">
+        <span>Home</span>
+        <span>About</span>
+        <span>Projects</span>
+        <span>Contact</span>
+    </div>
 
     <!-- Hero Section -->
     <section id="hero">
@@ -15,8 +23,14 @@
         <canvas class="webgl"></canvas>
 
         <div class="hero-content">
-            <h1>Welcome</h1>
-            <p>Explore the stars</p>
+            <h1>Welcome to Stemmie</h1>
+            <div style="height: 5%"></div>
+           <div class="button-wrap">
+            <button>
+                <span>Start the Quiz!</span>
+            </button>
+            <div class="button-shadow"></div>
+            </div>
         </div>
 
     </section>
@@ -40,6 +54,7 @@
     </section>
 
     <script type="module" src="particles.js"></script>
+    <script type="module" src="planetNav.js"></script>
 
 </body>
 </html>
