@@ -1,0 +1,93 @@
+const questions = [
+  {
+    "question": "What is your favourite subject in school?",
+    "uxAnswer": "Art",
+    "uxTotal": "1",
+    "engineeringAnswer": "Computing",
+    "engineeringTotal": "2",
+    "aiAnswer": "Science",
+    "aiTotal": "3",
+    "dataAnswer": "Maths",
+    "dataTotal": "4",
+    "managementAnswer": "Business",
+    "managementTotal": "5"
+  },
+  {
+    "question": "What is your ideal work environment?",
+    "uxAnswer": "Open creative studio",
+    "uxTotal": "1",
+    "engineeringAnswer": "Home office",
+    "engineeringTotal": "2",
+    "aiAnswer": "State-of-the-art lab",
+    "aiTotal": "3",
+    "dataAnswer": "On my own",
+    "dataTotal": "4",
+    "managementAnswer": "On the move",
+    "managementTotal": "5"
+  },
+  {
+    "question": "What do you like to do in your spare time?",
+    "uxAnswer": "Working on my style",
+    "uxTotal": "1",
+    "engineeringAnswer": "Gaming",
+    "engineeringTotal": "2",
+    "aiAnswer": "Solving puzzles",
+    "aiTotal": "3",
+    "dataAnswer": "Watching TV",
+    "dataTotal": "4",
+    "managementAnswer": "Reading",
+    "managementTotal": "5"
+  },
+  {
+    "question": "What describes you best?",
+    "uxAnswer": "I see the world in a different way and love coming up with new ideas",
+    "uxTotal": "1",
+    "engineeringAnswer": "I like practical, hands on work",
+    "engineeringTotal": "2",
+    "aiAnswer": "I enjoy solving problems and working with numbers",
+    "aiTotal": "3",
+    "dataAnswer": "I like analyzing data and finding patterns",
+    "dataTotal": "4",
+    "managementAnswer": "I enjoy leading teams and making decisions",
+    "managementTotal": "5"
+  },
+  {
+    "question": "What do you find most satisfying?",
+    "uxAnswer": "Visual results and creative expression",
+    "uxTotal": "1",
+    "engineeringAnswer": "Seeing something I built work successfully",
+    "engineeringTotal": "2",
+    "aiAnswer": "Finding solutions to complex problems",
+    "aiTotal": "3",
+    "dataAnswer": "Organising and interpreting data",
+    "dataTotal": "4",
+    "managementAnswer": "Turning small ideas into big results",
+    "managementTotal": "5"
+  },
+  {
+    "question": "How would your friends describe you?",
+    "uxAnswer": "Creative and artistic",
+    "uxTotal": "1",
+    "engineeringAnswer": "Hard working and practical",
+    "engineeringTotal": "2",
+    "aiAnswer": "Forward thinking and analytical",
+    "aiTotal": "3",
+    "dataAnswer": "Detail-oriented and logical",
+    "dataTotal": "4",
+    "managementAnswer": "Confident and decisive",
+    "managementTotal": "5"
+  },
+  {
+    "question": "What is most important to you?",
+    "uxAnswer": "Being able to express myself creatively",
+    "uxTotal": "1",
+    "engineeringAnswer": "Having freedom to work on practical projects",
+    "engineeringTotal": "2",
+    "aiAnswer": "Earning good money and having a stable career",
+    "aiTotal": "3",
+    "dataAnswer": "Always keep learning and improving my skills",
+    "dataTotal": "4",
+    "managementAnswer": "Interacting with people and leading ideas",
+    "managementTotal": "5"
+  }
+]
