@@ -3,22 +3,16 @@ const questions = [
     "question": "What is your favourite school subject?",
     "uxAnswer": "Art",
     "uxTotal": "1",
-    "answer1Image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0e/EW7_Eunos_MRT_Station_exterior_202412.jpg/500px-EW7_Eunos_MRT_Station_exterior_202412.jpg?utm_source=en.wikipedia.org&utm_campaign=parser&utm_content=thumbnail",
     "engineeringAnswer": "Computing",
     "engineeringTotal": "2",
-    "answer2Image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fa/Blueberry_frozen_yoghurt_%284937999312%29.jpg/330px-Blueberry_frozen_yoghurt_%284937999312%29.jpg?utm_source=en.wikipedia.org&utm_campaign=parser&utm_content=thumbnail",
     "aiAnswer": "Science",
     "aiTotal": "3",
-    "answer3Image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f0/An_artist%27s_impression_of_a_Pioneer_spacecraft_on_its_way_to_interstellar_space.jpg/330px-An_artist%27s_impression_of_a_Pioneer_spacecraft_on_its_way_to_interstellar_space.jpg?utm_source=en.wikipedia.org&utm_campaign=parser&utm_content=thumbnail",
     "dataAnswer": "Mathematics",
     "dataTotal": "4",
-    "answer4Image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0e/EW7_Eunos_MRT_Station_exterior_202412.jpg/500px-EW7_Eunos_MRT_Station_exterior_202412.jpg?utm_source=en.wikipedia.org&utm_campaign=parser&utm_content=thumbnail",
     "managementAnswer": "Business",
     "managementTotal": "5",
-    "answer5Image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fa/Blueberry_frozen_yoghurt_%284937999312%29.jpg/330px-Blueberry_frozen_yoghurt_%284937999312%29.jpg?utm_source=en.wikipedia.org&utm_campaign=parser&utm_content=thumbnail",
     "cyberAnswer": "English",
     "cyberTotal": "6",
-    "answer6Image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f0/An_artist%27s_impression_of_a_Pioneer_spacecraft_on_its_way_to_interstellar_space.jpg/330px-An_artist%27s_impression_of_a_Pioneer_spacecraft_on_its_way_to_interstellar_space.jpg?utm_source=en.wikipedia.org&utm_campaign=parser&utm_content=thumbnail"
   },
   {
     "question": "What is your ideal work environment?",
@@ -131,7 +125,7 @@ const categoryDescriptions = {
 };
 const optionLabels = document.querySelectorAll('.option span');
 const optionInputs = document.querySelectorAll('input[name="option"]');
-const container = document.querySelector('.quiz-container');
+const container = document.querySelector('.wotw-card');
 const questionEl = document.querySelector('.question');
 const nextButton = document.querySelector('.next');
 const previousButton = document.querySelector('.previous');
@@ -149,19 +143,10 @@ function generateQuestion(index) {
     optionLabels[optionIndex].textContent = question[`${category}Answer`];
     optionInputs[optionIndex].value = category;
     optionInputs[optionIndex].checked = selectedAnswersData[index] === category;
-
-    const image = document.querySelector(`#option${optionIndex + 1}Image`);
-    const imageSource = question[`answer${optionIndex + 1}Image`];
-    image.hidden = false;
-    image.style.visibility = imageSource ? 'visible' : 'hidden';
-    if (imageSource) {
-      image.src = imageSource;
-    }
-    image.alt = question[`${category}Answer`];
   });
 
   previousButton.disabled = index === 0;
-  nextButton.textContent = index === totalQuestions - 1 ? 'See result' : 'Next';
+  nextButton.querySelector('span').textContent = index === totalQuestions - 1 ? 'See result' : 'Next';
 }
 
 function showResult() {
