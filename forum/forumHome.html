@@ -8,6 +8,8 @@
     <!--
     <link rel="stylesheet" href="main.css">
     -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
 </head>
 <body>
     <!-- NAV-->
@@ -21,36 +23,142 @@
     <!-- NAV END -->
 
     <!-- CONTENT -->
-    <div class="forum-body">
+    <div class="forum-nav">
         <!-- FORUM DESC AND RULES-->
         <div class="container">
-            <h2>Welcome to the Forums!</h2>
-            <p>
-                Ask questions, connect with people. Blah blah basic description of forum.
-            </p>
-            <details>
-                <summary>Forum Rules</summary>
-                <ol>
-                    <li>Be nice</li>
-                    <li>Be respectful</li>
-                    <li>Be helpful!</li>
-                </ol>
-            </details>
+            <div class="row">
+                <h2>Welcome to the Forums!</h2>
+                <p>
+                    Ask questions, connect with people. Blah blah basic description of forum.
+                </p>
+            </div>
+            
+            <div class="row">
+
+                <!--            NON BOOTSTRAP VERSION
+                <details>
+                    <summary>Forum Rules</summary>
+                    <ol>
+                        <li>Be nice</li>
+                        <li>Be respectful</li>
+                        <li>Be helpful!</li>
+                    </ol>
+                </details>
+                    -->
+
+                <div class="accordion" id="accordionPanelsStayOpenExample">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
+                                Rules
+                            </button>
+                        </h2>
+                        <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse">
+                            <div class="accordion-body">
+                                <ol class="list-group list-group-numbered">
+                                    <li class="list-group-item d-flex justify-content-between align-items-start">
+                                        <div class="ms-2 me-auto">
+                                            <div class="fw-bold">Rule</div>
+                                            Description
+                                        </div>
+                                    </li>
+                                    <li class="list-group-item d-flex justify-content-between align-items-start">
+                                        <div class="ms-2 me-auto">
+                                            <div class="fw-bold">Rule</div>
+                                            Description
+                                        </div>
+                                    </li>
+                                    <li class="list-group-item d-flex justify-content-between align-items-start">
+                                        <div class="ms-2 me-auto">
+                                            <div class="fw-bold">Rule</div>
+                                            Description
+                                        </div>
+                                    </li>
+                                </ol>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
         <!-- FORUM DESC AND RULES END-->
+    </div>
 
-
+    <div class="forum-body">
         <div class="container">
-            <button></button>
+            <div class="row">
+                <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">Title</th>
+                        <th scope="col">Preview</th>
+                        <th scope="col">Replies</th>
+                        <th scope="col">Posted by</th>
+                        <th scope="col">Post date</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><a href="LINKHERE">TITLE</a></td>
+                        <td>
+                            Paragraph of text. Preview. First few sentences of post. Trail off to not preview all inf...
+                        </td>
+                        <td>NUM</td>
+                        <td>ACCOUNT</td>
+                        <td>XX / XX / XXXX</td>>
+                    </tr>
+                    <tr>
+                        <td><a href="LINKHERE">TITLE</a></td>
+                        <td>
+                            Paragraph of text. Preview. First few sentences of post. Trail off to not preview all inf...
+                        </td>
+                        <td>NUM</td>
+                        <td>ACCOUNT</td>
+                        <td>XX / XX / XXXX</td>>
+                    </tr>
+                    <tr>
+                        <td><a href="LINKHERE">TITLE</a></td>
+                        <td>
+                            Paragraph of text. Preview. First few sentences of post. Trail off to not preview all inf...
+                        </td>
+                        <td>NUM</td>
+                        <td>ACCOUNT</td>
+                        <td>XX / XX / XXXX</td>>
+                    </tr>
+                    <tr>
+                        <td><a href="LINKHERE">TITLE</a></td>
+                        <td>
+                            Paragraph of text. Preview. First few sentences of post. Trail off to not preview all inf...
+                        </td>
+                        <td>NUM</td>
+                        <td>ACCOUNT</td>
+                        <td>XX / XX / XXXX</td>>
+                    </tr>
+                    <tr>
+                        <td><a href="LINKHERE">TITLE</a></td>
+                        <td>
+                            Paragraph of text. Preview. First few sentences of post. Trail off to not preview all inf...
+                        </td>
+                        <td>NUM</td>
+                        <td>ACCOUNT</td>
+                        <td>XX / XX / XXXX</td>>
+                    </tr>
+                    
+                </tbody>
+                </table>
+            </div>
         </div>
     </div>
 
 
-
+    <footer>
+        <p>Footer stuff here</p>
+    </footer>
     <!--
     <script type="module" src="particles.js"></script>
     <script type="module" src="planetNav.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    
 </body>
 </html>
