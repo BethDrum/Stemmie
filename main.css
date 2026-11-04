@@ -55,7 +55,7 @@ body {
 
 #hero {
     position: relative;
-    height: 100vh;
+    height: 125vh;
     overflow: hidden;
 }
 
@@ -313,10 +313,12 @@ body {
 
 /* ========== BUTTON BASE STYLES ========== */
 
-button {
+button,
+.button-link {
   /* Basic Styling */
   --border-width: clamp(1px, 0.0625em, 4px);
   all: unset;
+  display: inline-block;
   cursor: pointer;
   position: relative;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
@@ -341,7 +343,8 @@ button {
   transition: all var(--anim--hover-time) var(--anim--hover-ease);
 }
 
-button:hover {
+button:hover,
+.button-link:hover {
   transform: scale(0.975);
   backdrop-filter: blur(0.01em);
   -webkit-backdrop-filter: blur(0.01em);
@@ -355,7 +358,8 @@ button:hover {
 }
 
 /* Button Text */
-button span {
+button span,
+.button-link span {
   position: relative;
   display: block;
   user-select: none;
@@ -374,12 +378,14 @@ button span {
   padding-block: 0.875em;
 }
 
-button:hover span {
+button:hover span,
+.button-link:hover span {
   text-shadow: 0.025em 0.025em 0.025em rgba(0, 0, 0, 0.12);
 }
 
 /* Text */
-button span::after {
+button span::after,
+.button-link span::after {
   content: "";
   display: block;
   position: absolute;
@@ -408,11 +414,13 @@ button span::after {
     --angle-2 calc(var(--anim--hover-time) * 1.25) var(--anim--hover-ease);
 }
 
-button:hover span::after {
+button:hover span::after,
+.button-link:hover span::after {
   background-position: 25% 50%;
 }
 
-button:active span::after {
+button:active span::after,
+.button-link:active span::after {
   background-position: 50% 15%;
   --angle-2: -15deg;
 }
@@ -420,7 +428,9 @@ button:active span::after {
 /* Touch Devices */
 @media (hover: none) and (pointer: coarse) {
   button span::after,
-  button:active span::after {
+  button:active span::after,
+  .button-link span::after,
+  .button-link:active span::after {
     --angle-2: -45deg;
   }
 }
@@ -428,7 +438,8 @@ button:active span::after {
 /* ========== BUTTON OUTLINE ========== */
 
 /* Outline */
-button::after {
+button::after,
+.button-link::after {
   content: "";
   position: absolute;
   z-index: 1;
@@ -456,24 +467,30 @@ button::after {
   box-shadow: inset 0 0 0 calc(var(--border-width) / 2) rgba(255, 255, 255, 0.5);
 }
 
-button:hover::after {
+button:hover::after,
+.button-link:hover::after {
   --angle-1: -125deg;
 }
 
-button:active::after {
+button:active::after,
+.button-link:active::after {
   --angle-1: -75deg;
 }
 
 @media (hover: none) and (pointer: coarse) {
   button::after,
   button:hover::after,
-  button:active::after {
+  button:active::after,
+  .button-link::after,
+  .button-link:hover::after,
+  .button-link:active::after {
     --angle-1: -75deg;
   }
 }
 
 /* Shadow Hover */
-.button-wrap:has(button:hover) .button-shadow {
+.button-wrap:has(button:hover) .button-shadow,
+.button-wrap:has(.button-link:hover) .button-shadow {
   filter: blur(clamp(2px, 0.0625em, 6px));
   -webkit-filter: blur(clamp(2px, 0.0625em, 6px));
   -moz-filter: blur(clamp(2px, 0.0625em, 6px));
@@ -481,17 +498,20 @@ button:active::after {
   transition: filter var(--anim--hover-time) var(--anim--hover-ease);
 }
 
-.button-wrap:has(button:hover) .button-shadow::after {
+.button-wrap:has(button:hover) .button-shadow::after,
+.button-wrap:has(.button-link:hover) .button-shadow::after {
   top: calc(var(--shadow-cuttoff-fix) - 0.875em);
   opacity: 1;
 }
 
 /* Rotation */
-.button-wrap:has(button:active) {
+.button-wrap:has(button:active),
+.button-wrap:has(.button-link:active) {
   transform: rotate3d(1, 0, 0, 25deg);
 }
 
-.button-wrap:has(button:active) button {
+.button-wrap:has(button:active) button,
+.button-wrap:has(.button-link:active) .button-link {
   box-shadow: inset 0 0.125em 0.125em rgba(0, 0, 0, 0.05),
     inset 0 -0.125em 0.125em rgba(255, 255, 255, 0.5),
     0 0.125em 0.125em -0.125em rgba(0, 0, 0, 0.2),
@@ -501,18 +521,21 @@ button:active::after {
     inset 0 0.25em 0.05em 0 rgba(0, 0, 0, 0.15);
 }
 
-.button-wrap:has(button:active) .button-shadow {
+.button-wrap:has(button:active) .button-shadow,
+.button-wrap:has(.button-link:active) .button-shadow {
   filter: blur(clamp(2px, 0.125em, 12px));
   -webkit-filter: blur(clamp(2px, 0.125em, 12px));
   -moz-filter: blur(clamp(2px, 0.125em, 12px));
   -ms-filter: blur(clamp(2px, 0.125em, 12px));
 }
 
-.button-wrap:has(button:active) .button-shadow::after {
+.button-wrap:has(button:active) .button-shadow::after,
+.button-wrap:has(.button-link:active) .button-shadow::after {
   top: calc(var(--shadow-cuttoff-fix) - 0.5em);
   opacity: 0.75;
 }
 
-.button-wrap:has(button:active) span {
+.button-wrap:has(button:active) span,
+.button-wrap:has(.button-link:active) span {
   text-shadow: 0.025em 0.25em 0.05em rgba(0, 0, 0, 0.12);
 }
