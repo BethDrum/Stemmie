@@ -6,7 +6,18 @@
 
 html,
 body {
-    background: #000;
+    min-height: 100%;
+
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(120,205,215,1) 0%,
+            rgba(78,154,201,1) 18%,
+            rgba(43,74,140,1) 42%,
+            rgba(28,18,70,1) 72%,
+            rgba(8,4,20,1) 100%
+        );
+
     color: white;
     font-family: "Share Tech Mono", monospace;
     font-weight: 400;
