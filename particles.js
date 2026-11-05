@@ -79,13 +79,37 @@ scene.add(stars)
 let mouseX = 0
 let mouseY = 0
 
-window.addEventListener('mousemove', event =>
+let mouseEnabled = true
+
+window.addEventListener('mousemove', (event) =>
 {
+    if (!mouseEnabled) return
+
     mouseX =
         (event.clientX / window.innerWidth - 0.5)
 
     mouseY =
         (event.clientY / window.innerHeight - 0.5)
+})
+
+window.addEventListener('keydown', (event) =>
+{
+    if(event.key.toLowerCase() === 'm')
+    {
+        mouseEnabled = !mouseEnabled
+
+        if(!mouseEnabled)
+        {
+            mouseX = 0
+            mouseY = 0
+        }
+
+        console.log(
+            mouseEnabled
+                ? 'Star movement ON'
+                : 'Star movement OFF'
+        )
+    }
 })
 
 /* --------------------------
