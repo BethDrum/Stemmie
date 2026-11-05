@@ -243,7 +243,7 @@ homePlanet.userData.url = "index.html";
 projectsPlanet.userData.url = "/quiz/quiz.html";
 aboutPlanet.userData.url = "/blog/blog.html";
 contactPlanet.userData.url = "/events/events.html";
-formPlanet.userData.url = "/quiz/quiz.html"
+formPlanet.userData.url = "/forum/forumHome.html"
 /* ---------- INTERACTION ---------- */
 
 const raycaster =
