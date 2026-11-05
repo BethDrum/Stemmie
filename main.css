@@ -122,6 +122,12 @@ body {
     transition: box-shadow 250ms ease, border-color 250ms ease, transform 250ms ease;
 }
 
+.profile-header {
+    margin-inline: auto;
+    margin-top: 160px;
+    padding: 0;
+}
+
 .wotw-card:hover {
     border-color: rgba(120, 205, 215, 0.8);
     box-shadow: 0 0 18px rgba(120, 205, 215, 0.55), 0 0 42px rgba(78, 154, 201, 0.35);
