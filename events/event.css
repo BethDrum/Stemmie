@@ -32,7 +32,7 @@ html{
 .page-content {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 125px 2rem 4rem;
+    padding: 180px 2rem 4rem;
     z-index: 1;
     position: relative;
 }
@@ -47,6 +47,7 @@ html{
     border-radius: 16px;
     box-shadow: 0 0 20px rgba(78, 154, 201, 0.14);
     backdrop-filter: blur(10px);
+    transition: transform 250ms ease, box-shadow 250ms ease, border-color 250ms ease;
 }
 
 .events-related .text-muted {
@@ -65,7 +66,8 @@ html{
     transition: transform 250ms ease, box-shadow 250ms ease, border-color 250ms ease;
 }
 
-.events-related .card:hover {
+.events-related .card:hover,
+.events-related:hover {
     transform: translateY(-4px);
     border-color: rgba(120, 205, 215, 0.75) !important;
     box-shadow: 0 0 18px rgba(120, 205, 215, 0.35), 0 0 36px rgba(78, 154, 201, 0.25) !important;
@@ -90,6 +92,37 @@ html{
 .events-related .btn-outline-dark:hover {
     color: #10152d;
     background: rgba(120, 205, 215, 0.9);
+    border-color: rgba(120, 205, 215, 0.9);
+}
+
+.events-related .form-select,
+.events-related .form-control {
+    color: white;
+    background-color: rgba(28, 18, 70, 0.72);
+    border-color: rgba(120, 205, 215, 0.45);
+}
+
+.events-related .form-select:focus,
+.events-related .form-control:focus {
+    color: white;
+    background-color: rgba(28, 18, 70, 0.85);
+    border-color: rgba(120, 205, 215, 0.9);
+    box-shadow: 0 0 0 0.25rem rgba(120, 205, 215, 0.2);
+}
+
+.events-related .form-control::placeholder {
+    color: rgba(224, 242, 255, 0.7);
+}
+
+.events-related .btn-primary {
+    color: #10152d;
+    background: rgba(120, 205, 215, 0.9);
+    border-color: rgba(120, 205, 215, 0.9);
+}
+
+.events-related .btn-primary:hover {
+    color: white;
+    background: rgba(78, 154, 201, 0.8);
     border-color: rgba(120, 205, 215, 0.9);
 }
 
