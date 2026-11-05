@@ -129,6 +129,9 @@ const optionLabels = document.querySelectorAll('.option span');
 const optionInputs = document.querySelectorAll('input[name="option"]');
 const container = document.querySelector('.wotw-card');
 const questionEl = document.querySelector('.question');
+const progressBar = document.querySelector('.progress-bar');
+const progressFill = document.querySelector('.progress-fill');
+const progressLabel = document.querySelector('.progress-label');
 const nextButton = document.querySelector('.next');
 const previousButton = document.querySelector('.previous');
 const result = document.querySelector('.result');
@@ -140,6 +143,10 @@ result.hidden = true;
 function generateQuestion(index) {
   const question = questions[index];
   questionEl.textContent = `${index + 1}. ${question.question}`;
+  const progress = ((index + 1) / totalQuestions) * 100;
+  progressFill.style.width = `${progress}%`;
+  progressBar.setAttribute('aria-valuenow', String(index + 1));
+  progressLabel.textContent = `Question ${index + 1} of ${totalQuestions}`;
 
   categories.forEach((category, optionIndex) => {
     optionLabels[optionIndex].textContent = question[`${category}Answer`];

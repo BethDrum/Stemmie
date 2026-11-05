@@ -32,6 +32,33 @@ body {
   text-align: center;
   text-transform: uppercase;
 }
+.progress-container {
+  margin: -1rem 0 2rem;
+}
+.progress-bar {
+  height: 14px;
+  overflow: hidden;
+  border: 1px solid rgba(120, 205, 215, 0.4);
+  border-radius: 999px;
+  background: rgba(28, 18, 70, 0.72);
+  box-shadow: 0 0 12px rgba(78, 154, 201, 0.14);
+}
+.progress-fill {
+  display: block;
+  width: 14.2857%;
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, rgba(78, 154, 201, 0.9), rgba(120, 205, 215, 0.95));
+  box-shadow: 0 0 14px rgba(120, 205, 215, 0.45);
+  transition: width 250ms ease;
+}
+.progress-label {
+  display: block;
+  margin-top: 0.5rem;
+  color: rgba(224, 242, 255, 0.7);
+  font-size: 0.85rem;
+  text-align: right;
+}
 .question {
   margin: 2rem 0;
   font-size: 1.5rem;
