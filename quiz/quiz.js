@@ -1,3 +1,5 @@
+import { launchConfetti } from './confetti.js';
+
 const questions = [
   {
     "question": "What is your favourite school subject?",
@@ -165,6 +167,7 @@ function showResult() {
     <h1>${resultSentence}</h1>
     <button class="restart" type="button">Restart quiz</button>
   `;
+  launchConfetti();
   result.scrollIntoView({ behavior: 'smooth', block: 'start' });
 }
 
