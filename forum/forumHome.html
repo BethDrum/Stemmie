@@ -15,163 +15,147 @@
 <body>
     <!-- NAV-->
     <div id="planet-nav"></div>
-    <div class="planet-labels">
-        <span>Home</span>
-        <span>About</span>
-        <span>Projects</span>
-        <span>Contact</span>
+   <div class="planet-labels">
+        <span id="home-label">Home</span>
+        <span id="about-label" style="margin-left: 10px;">The Blog</span>
+        <span id="projects-label" style="margin-left:30px">Quiz</span>
+        <span id="contact-label">Local Events</span>
+        <span id="contact-label">Community</span>
     </div>
     <!-- NAV END -->
 
     <!-- CONTENT -->
-    <div class="forum-nav">
-        <!-- FORUM DESC AND RULES-->
-        <div class="container">
-            <div class="row" id="forumHead">
-                <h2 class="forumHead">Welcome to your Intergalactic Community!</h2>
-                <p class="forumHead">
-                    These are the forums, the best place to ask for help, help others, and learn from others. 
-                </p>
-            </div>
-            
-            <div class="row">
-                <!-- FORUM RULES START -->
-                <div class="accordion" id="accordionPanelsStayOpenExample">
-                    <div class="accordion-item">
-                        <h2 class="accordion-header">
-                            <button class="accordion-button text-white" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
-                                Rules
-                            </button>
-                        </h2>
-                        <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse">
-                            <div class="accordion-body">
-                                <ol class="list-group list-group-numbered">
-                                    <li class="list-group-item d-flex justify-content-between align-items-start">
-                                        <div class="ms-2 me-auto">
-                                            <div class="fw-bold">No Bad Language</div>
-                                            Keep language family friendly - No swearing or inappropriate language.
-                                        </div>
-                                    </li>
-                                    <li class="list-group-item d-flex justify-content-between align-items-start">
-                                        <div class="ms-2 me-auto">
-                                            <div class="fw-bold">Be Nice</div>
-                                            Rude behaviour will not be tolerated. Please treat all users with respect and kindness.
-                                        </div>
-                                    </li>
-                                    <li class="list-group-item d-flex justify-content-between align-items-start">
-                                        <div class="ms-2 me-auto">
-                                            <div class="fw-bold">No Spam</div>
-                                            Keep spam to a minimum - Don't post things repetitively.
-                                        </div>
-                                    </li>
-                                </ol>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- FORUM RULES END -->
+    <canvas class="webgl"></canvas>
+    <div class="forumContent">
+<div class="forum-nav">
+<div class="container">
 
-            </div>
-        </div>
-        <!-- FORUM DESC AND RULES END-->
-    </div>
+<div style="height:140px;"></div>
+<div class="row" id="forumHead">
+<h2 class="forumHead">
+Welcome to your Intergalactic Community!
+</h2>
 
-    <div class="forum-body">
-        <div class="container">
-            <div class="row">
-                <br>
-                <button type="button" class="btn text-white">Have a Question?</button>
-            </div>
-            <div class="row">
-                <table class="table table-striped rounded-10">
-                <thead>
-                    <tr id="forumTableHead" class="table-active">
-                        <th scope="col">Title</th>
-                        <th scope="col">Preview</th>
-                        <th scope="col">Replies</th>
-                        <th scope="col">Posted by</th>
-                        <th scope="col">Post date</th>
-                        <th scope="col">Tags</th>
-                    </tr>
-                </thead>                
-                <tbody class="table-group-divider">
-                    <tr>
-                        <td><a href="#" id="tableLinks">how do i make a website?</a></td>
-                        <td>
-                            i wanna make a website for my favourite video game but I don't know where to...
-                        </td>
-                        <td>12</td>
-                        <td><a href="#" id="tableLinks">marioguy99</a></td>
-                        <td>04/11/2026</td>>
-                        <td>
-                            <span id="forumTag">Websites</span>
-                            <span id="forumTag">Learning</span>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><a href="#" id="tableLinks">Advice for first hackathon?</a></td>
-                        <td>
-                            My friends and I are going to a hackathon in a week, but none of us have ever bee...
-                        </td>
-                        <td>21</td>
-                        <td><a href="#" id="tableLinks">JohnSteven1</a></td>
-                        <td>01/11/2026</td>>
-                        <td>
-                            <span id="forumTag">Hackathon</span>
-                            <span id="forumTag">Help</span>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><a href="#" id="tableLinks">I wanna be a hacker!</a></td>
-                        <td>
-                            Can you be a hacker as a job I think it would be really cool and stuff like imagine if...
-                        </td>
-                        <td>14</td>
-                        <td><a href="#" id="tableLinks">ILikeCoolCars</a></td>
-                        <td>01/10/2026</td>>
-                        <td>
-                            <span id="forumTag">Jobs</span>
-                            <span id="forumTag">Help</span>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><a href="#" id="tableLinks">School qualifications for CS?</a></td>
-                        <td>
-                            If I want to get into CS, what subjects should I pick in school? My school doesn't offer...
-                        </td>
-                        <td>24</td>
-                        <td><a href=# id="tableLinks">smartStudent</a></td>
-                        <td>16/10/2026</td>>
-                        <td>
-                            <span id="forumTag">School</span>
-                            <span id="forumTag">Computer Science</span>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><a href="#" id="tableLinks">What's your favourite programming language?</a></td>
-                        <td>
-                            We only do python in school, but I've done a bit of C++ and JavaScript and I really like...
-                        </td>
-                        <td>7</td>
-                        <td><a href="#" id="tableLinks">HelloWorld!</a></td>
-                        <td>29/10/2026</td>>
-                        <td>
-                            <span id="forumTag">Opinions</span>
-                            <span id="forumTag">Python</span>
-                        </td>
-                    </tr>
-                    
-                </tbody>
-                </table>
-            </div>
-        </div>
-    </div>
+<p class="forumHead">
+These are the forums, the best place to ask for help, help others, and learn from others.
+</p>
+</div>
 
-    <!--
-    <footer>
-        <p>Footer stuff here</p>
-    </footer>
--->
+<div class="row">
+<div class="accordion" id="accordionPanelsStayOpenExample">
+<div class="accordion-item">
+
+<h2 class="accordion-header">
+<button
+class="accordion-button text-white"
+type="button"
+data-bs-toggle="collapse"
+data-bs-target="#panelsStayOpen-collapseOne">
+
+Rules
+
+</button>
+</h2>
+
+<div
+id="panelsStayOpen-collapseOne"
+class="accordion-collapse collapse">
+
+<div class="accordion-body">
+
+<ol class="list-group list-group-numbered">
+
+<li class="list-group-item">
+<div class="fw-bold">
+No Bad Language
+</div>
+
+Keep language family friendly.
+</li>
+
+<li class="list-group-item">
+<div class="fw-bold">
+Be Nice
+</div>
+
+Treat all users with respect.
+</li>
+
+<li class="list-group-item">
+<div class="fw-bold">
+No Spam
+</div>
+
+Avoid repetitive posting.
+</li>
+
+</ol>
+
+</div>
+</div>
+
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="forum-body">
+<div class="container">
+<div style="height: 20px"></div>
+<div class="row">
+<button
+type="button"
+class="btn forum-btn text-white">
+
+Have a Question?
+
+</button>
+</div>
+
+<div class="row">
+
+<table class="table forum-table">
+<thead>
+<tr id="forumTableHead">
+<th>Title</th>
+<th>Preview</th>
+<th>Replies</th>
+<th>Posted by</th>
+<th>Post date</th>
+<th>Tags</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#" class="tableLinks">How do I make a website?</a></td>
+<td>I wanna make a website for my favourite video game but I don't know where to...</td>
+<td>12</td>
+<td><a href="#" class="tableLinks">marioguy99</a></td>
+<td>04/11/2026</td>
+<td>
+<span class="forumTag">Websites</span>
+<span class="forumTag">Learning</span>
+</td>
+</tr>
+<tr>
+<td><a href="#" class="tableLinks">Advice for first hackathon?</a></td>
+<td>My friends and I are going to a hackathon in a week...</td>
+<td>21</td>
+<td><a href="#" class="tableLinks">JohnSteven1</a></td>
+<td>01/11/2026</td>
+<td>
+<span class="forumTag">Hackathon</span>
+<span class="forumTag">Help</span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
     
     <script type="module" src="/particles.js"></script>
     <script type="module" src="/planetNav.js"></script>
