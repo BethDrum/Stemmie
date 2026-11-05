@@ -138,15 +138,17 @@ const clock = new THREE.Clock()
 
 function animate()
 {
-    const elapsed =
-        clock.getElapsedTime()
+    const elapsed = clock.getElapsedTime()
 
-    stars.rotation.y =
-        elapsed * 0.03 +
-        mouseX * 0.15
+    if (mouseEnabled)
+    {
+        stars.rotation.y =
+            elapsed * 0.03 +
+            mouseX * 0.15
 
-    stars.rotation.x =
-        mouseY * 0.05
+        stars.rotation.x =
+            mouseY * 0.05
+    }
 
     renderer.render(
         scene,
