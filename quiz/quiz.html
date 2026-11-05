@@ -1,25 +1,45 @@
 <!DOCTYPE html>
 <head>
     <title>Tech Quiz</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="/main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Literata:ital,opsz@0,7..72;1,7..72&family=Share+Tech+Mono&display=swap" rel="stylesheet">
 </head>
 
 <body>
+    <div id="planet-nav"></div>
 
-    <div class="quiz-container">
+    <div class="planet-labels">
+        <span id="home-label">Home</span>
+        <span id="about-label" style="margin-left: 10px;">The Blog</span>
+        <span id="projects-label" style="margin-left:30px">Quiz</span>
+        <span id="contact-label">Local Events</span>
+        <span id="contact-label">Community</span>
+    </div>
+
+    <canvas class="webgl"></canvas>
+
+    <div style="height:22%;"></div>
+    <div class="wotw-card">
         <div class="title">Which tech field suits you best?</div>
         <div id="question" class="question"></div>
-        <label class="option">
-            <input type="radio" name="option" value="1" />
-            <span class="option1"></span>
-        </label>
-        <label class="option">
-            <input type="radio" name="option" value="2" />
-            <span class="option2"></span>
-        </label>
-        <label class="option">
-            <input type="radio" name="option" value="3" />
-            <span class="option3"></span>
-        </label>
+        <div class="row">
+            <label class="option">
+                <input type="radio" name="option" value="1" />
+                <span class="option1"></span>
+            </label>
+            <label class="option">
+                <input type="radio" name="option" value="2" />
+                <span class="option2"></span>
+            </label>
+            <label class="option">
+                <input type="radio" name="option" value="3" />
+                <span class="option3"></span>
+            </label>
+        </div>
+        <div class="row">
         <label class="option">
             <input type="radio" name="option" value="4" />
             <span class="option4"></span>
@@ -28,15 +48,33 @@
             <input type="radio" name="option" value="5" />
             <span class="option5"></span>
         </label>
+        <label class="option">
+            <input type="radio" name="option" value="6" />
+            <span class="option6"></span>
+        </div>
         <!-- Buttons -->
         <div class="controls">
-            <button class="previous">Previous</button>
-            <button class="next">Next</button>
+            <div class="button-wrap">
+            <button class ="previous" type="button">
+                <span>Previous</span>
+            </button>
+            <div class="button-shadow"></div>
+            </div>
+
+            <div class="button-wrap">
+                <button type="button" class="next">
+                    <span>Next</span>
+                </button>
+                <div class="button-shadow"></div>
+            </div>
         </div>
     </div>
 
     <div class="result">
 
     </div>
-    <script src="quiz.js" defer></script>
 </body>
+<script defer src="quiz.js"></script>
+<script type="module" src="/particles.js"></script>
+<script type="module" src="/planetNav.js"></script>
+</html>

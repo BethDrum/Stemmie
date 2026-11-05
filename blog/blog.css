@@ -1,0 +1,112 @@
+html,
+body,
+* {
+    font-family: "Share Tech Mono", monospace !important;
+}
+
+body {
+    color: white;
+    font-family: "Share Tech Mono", monospace;
+    font-weight: 400;
+    font-style: normal;
+}
+
+html{
+    font-family: "Share Tech Mono", monospace;
+    font-weight: 400;
+    font-style: normal;
+}
+
+/* Main page content */
+.webgl {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.page-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 180px 2rem 4rem;
+    z-index: 1;
+    position: relative;
+}
+
+.blog-related {
+    position: relative;
+    z-index: 1;
+    padding: 2rem;
+    color: white;
+    background: rgba(28, 18, 70, 0.72);
+    border: 1px solid rgba(120, 205, 215, 0.3);
+    border-radius: 16px;
+    box-shadow: 0 0 20px rgba(78, 154, 201, 0.14);
+    backdrop-filter: blur(10px);
+    transition: transform 250ms ease, box-shadow 250ms ease, border-color 250ms ease;
+}
+
+.blog-related h3 {
+    margin-bottom: 0.5rem;
+}
+
+.blog-related .text-muted {
+    color: rgba(224, 242, 255, 0.7) !important;
+}
+
+.blog-related .card,
+.featured-blog {
+    height: 100%;
+    overflow: hidden;
+    color: white;
+    background: rgba(28, 18, 70, 0.72);
+    border: 1px solid rgba(120, 205, 215, 0.3) !important;
+    border-radius: 16px;
+    box-shadow: 0 0 20px rgba(78, 154, 201, 0.14) !important;
+    backdrop-filter: blur(10px);
+    transition: transform 250ms ease, box-shadow 250ms ease, border-color 250ms ease;
+}
+
+.featured-blog {
+    padding: 2rem;
+}
+
+.blog-related .card:hover,
+.blog-related:hover,
+.featured-blog:hover {
+    transform: translateY(-4px);
+    border-color: rgba(120, 205, 215, 0.75) !important;
+    box-shadow: 0 0 18px rgba(120, 205, 215, 0.35), 0 0 36px rgba(78, 154, 201, 0.25) !important;
+}
+
+.blog-related .card-img-top {
+    height: 190px;
+    object-fit: cover;
+}
+
+.blog-related .badge,
+.featured-blog .badge {
+    color: white !important;
+    background: rgba(78, 154, 201, 0.4) !important;
+    border: 1px solid rgba(120, 205, 215, 0.45);
+}
+
+.blog-related .btn-outline-dark,
+.featured-blog .btn-outline-dark {
+    color: white;
+    border-color: rgba(120, 205, 215, 0.65);
+}
+
+.blog-related .btn-outline-dark:hover,
+.featured-blog .btn-outline-dark:hover {
+    color: #10152d;
+    background: rgba(120, 205, 215, 0.9);
+    border-color: rgba(120, 205, 215, 0.9);
+}
+
+@media (max-width: 600px) {
+    .blog-related,
+    .featured-blog {
+        padding: 1.5rem;
+    }
+}

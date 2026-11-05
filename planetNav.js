@@ -10,6 +10,8 @@ const aspect =
 
 const frustumSize = 20
 
+const textureLoader = new THREE.TextureLoader()
+
 const camera =
     new THREE.OrthographicCamera(
         (-frustumSize * aspect) / 2,
@@ -66,67 +68,131 @@ scene.add(directionalLight)
 
 /* ---------- PLANET FACTORY ---------- */
 
-function createPlanet(
-    color,
-    x
-) {
-    const geometry =
-    new THREE.SphereGeometry(1.4, 64, 64)
+/** ------- VENUS ------------*/
 
-    const material =
-        new THREE.MeshStandardMaterial({
-            color,
-            roughness: 0.8,
-            metalness: 0.15
-        })
+const venusTexture = textureLoader.load(
+    '/textures/venus.jpg'
+)
 
-    const planet =
-        new THREE.Mesh(
-            geometry,
-            material
-        )
+venusTexture.colorSpace = THREE.SRGBColorSpace
 
-    planet.position.x = x
+venusTexture.anisotropy = renderer.capabilities.getMaxAnisotropy()
 
-    scene.add(planet)
+const homeMaterial =
+    new THREE.MeshStandardMaterial({
+        map: venusTexture,
+        roughness: 0.8,
+        metalness: 0.15
+    })
 
-    return planet
-}
+const homePlanet = new THREE.Mesh(
+    new THREE.SphereGeometry(1.8, 64, 64),
+    homeMaterial
+)
 
+homePlanet.position.x = -28
 
-/* ---------- PLANETS ---------- */
+scene.add(homePlanet)
 
-const homePlanet =
-    createPlanet('#78CDD7', -18)
+/**-----------EARTH--------------- */
+const earthTexture = textureLoader.load(
+    '/textures/earth.jpg'
+)
 
-const aboutPlanet =
-    createPlanet('#4dbef5', -6)
+earthTexture.colorSpace = THREE.SRGBColorSpace
 
-const projectsPlanet =
-    createPlanet('#7d88ff', 6)
+earthTexture.anisotropy = renderer.capabilities.getMaxAnisotropy()
 
-const contactPlanet =
-    createPlanet('#d2b278', 19)
+const aboutMaterial =
+    new THREE.MeshStandardMaterial({
+        map: earthTexture,
+        roughness: 0.8,
+        metalness: 0.15
+    })
 
-homePlanet.scale.set(2.8, 2.8, 2.8)
-aboutPlanet.scale.set(2.8, 2.8, 2.8)
-projectsPlanet.scale.set(2.8, 2.8, 2.8)
-contactPlanet.scale.set(2.8, 2.8, 2.8)
+const aboutPlanet = new THREE.Mesh(
+    new THREE.SphereGeometry(1.8, 64, 64),
+    aboutMaterial
+)
+
+aboutPlanet.position.x = -14
+
+scene.add(aboutPlanet)
+
+/**------------MARS-------------- */
+
+const marsTexture = textureLoader.load(
+    '/textures/mars.jpg'
+)
+
+marsTexture.colorSpace = THREE.SRGBColorSpace
+
+marsTexture.anisotropy = renderer.capabilities.getMaxAnisotropy()
+
+const projectsMaterial =
+    new THREE.MeshStandardMaterial({
+        map: marsTexture,
+        roughness: 0.8,
+        metalness: 0.15
+    })
+
+const projectsPlanet = new THREE.Mesh(
+    new THREE.SphereGeometry(1.8, 64, 64),
+    projectsMaterial
+)
+
+projectsPlanet.position.x = 0
+
+scene.add(projectsPlanet)
+
+/**-----------SATURN---------- */
+const saturnTexture = textureLoader.load(
+    '/textures/saturn.jpg'
+)
+
+saturnTexture.colorSpace = THREE.SRGBColorSpace
+
+saturnTexture.anisotropy = renderer.capabilities.getMaxAnisotropy()
+
+const contactMaterial =
+    new THREE.MeshStandardMaterial({
+        map: saturnTexture,
+        roughness: 0.8,
+        metalness: 0.15
+    })
+
+const contactPlanet = new THREE.Mesh(
+    new THREE.SphereGeometry(1.8, 64, 64),
+    contactMaterial
+)
+
+contactPlanet.position.x = 15
+
+scene.add(contactPlanet)
 
 /* ---------- SATURN RING ---------- */
+
+const saturnRingTexture = textureLoader.load(
+    '/textures/saturn_ring.png'
+)
+
+saturnRingTexture.colorSpace = THREE.SRGBColorSpace
+saturnRingTexture.anisotropy = renderer.capabilities.getMaxAnisotropy()
+
+const ringMaterial = new THREE.MeshStandardMaterial({
+    side: THREE.DoubleSide,
+    transparent: true,
+    opacity: 0.95,
+    map: saturnRingTexture,
+    roughness: 0.8,
+    metalness: 0.15
+})
 
 const ringGeometry = new THREE.RingGeometry(
     1.0,   // inner radius
     1.6,   // outer radius
     128
 )
-
-const ringMaterial = new THREE.MeshStandardMaterial({
-    color: '#e7cf9a',
-    side: THREE.DoubleSide,
-    transparent: true,
-    opacity: 0.85
-})
 
 const ring = new THREE.Mesh(
     ringGeometry,
@@ -136,10 +202,48 @@ const ring = new THREE.Mesh(
 ring.rotation.x = Math.PI / 2.5;
 ring.rotation.z = Math.PI / 5
 
-ring.scale.set(1.5, 1.5, 1.5)
+ring.scale.set(2, 2, 2)
 
 contactPlanet.add(ring)
 
+/**-----------URANUS---------- */
+const uranusTexture = textureLoader.load(
+    '/textures/uranus.jpg'
+)
+
+uranusTexture.colorSpace = THREE.SRGBColorSpace
+uranusTexture.anisotropy = renderer.capabilities.getMaxAnisotropy()
+
+const formMaterial =
+    new THREE.MeshStandardMaterial({
+        map: uranusTexture,
+        roughness: 0.8,
+        metalness: 0.15
+    })
+
+const formPlanet = new THREE.Mesh(
+    new THREE.SphereGeometry(1.8, 64, 64),
+    formMaterial
+)
+
+formPlanet.position.x = 30
+
+scene.add(formPlanet)
+console.log(formPlanet.position);
+
+
+/**--------------SET OG POSITIONS-------------- */
+homePlanet.userData.baseX = homePlanet.position.x
+aboutPlanet.userData.baseX = aboutPlanet.position.x
+projectsPlanet.userData.baseX = projectsPlanet.position.x
+contactPlanet.userData.baseX = contactPlanet.position.x
+formPlanet.userData.baseX = formPlanet.position.x
+
+homePlanet.userData.url = "index.html";
+projectsPlanet.userData.url = "/quiz/quiz.html";
+aboutPlanet.userData.url = "/blog/blog.html";
+contactPlanet.userData.url = "/events/events.html";
+formPlanet.userData.url = "/quiz/quiz.html"
 /* ---------- INTERACTION ---------- */
 
 const raycaster =
@@ -148,6 +252,8 @@ const raycaster =
 const mouse =
     new THREE.Vector2()
 
+const mouseWorld = new THREE.Vector2()
+
 // planet hover
 let hoveredPlanet = null
 
@@ -155,77 +261,46 @@ const planets = [
     homePlanet,
     aboutPlanet,
     projectsPlanet,
-    contactPlanet
+    contactPlanet,
+    formPlanet
 ]
 
 renderer.domElement.addEventListener(
     'click',
-    event => {
+    (event) => {
 
-        const rect =
-            renderer.domElement.getBoundingClientRect()
+        const rect = renderer.domElement.getBoundingClientRect();
 
         mouse.x =
-            ((event.clientX - rect.left)
-                / rect.width) * 2 - 1
+            ((event.clientX - rect.left) / rect.width) * 2 - 1;
 
         mouse.y =
-            -((event.clientY - rect.top)
-                / rect.height) * 2 + 1
+            -((event.clientY - rect.top) / rect.height) * 2 + 1;
 
-        raycaster.setFromCamera(
-            mouse,
-            camera
-        )
+        raycaster.setFromCamera(mouse, camera);
 
-        const intersects =
-            raycaster.intersectObjects([
-                homePlanet,
-                aboutPlanet,
-                projectsPlanet,
-                contactPlanet
-            ])
+        const intersects = raycaster.intersectObjects(planets);
 
-        if (!intersects.length) return
+        if (!intersects.length) return;
 
-        const target =
-            intersects[0].object
+        const clickedPlanet = intersects[0].object;
 
-        if (target === homePlanet)
-            document
-                .querySelector('#hero')
-                ?.scrollIntoView({
-                    behavior: 'smooth'
-                })
-
-        if (target === aboutPlanet)
-            document
-                .querySelector('#about')
-                ?.scrollIntoView({
-                    behavior: 'smooth'
-                })
-
-        if (target === projectsPlanet)
-            document
-                .querySelector('#projects')
-                ?.scrollIntoView({
-                    behavior: 'smooth'
-                })
-
-        if (target === contactPlanet)
-            document
-                .querySelector('#contact')
-                ?.scrollIntoView({
-                    behavior: 'smooth'
-                })
+        if (clickedPlanet.userData.url) {
+            window.location.href = clickedPlanet.userData.url;
+        }
     }
-)
+);
 
 /* ---------- HOVER ---------- */
 
 window.addEventListener(
     'mousemove',
     event => {
+        mouseWorld.x =
+            mouse.x * (frustumSize * aspect) / 2
+
+        mouseWorld.y =
+            mouse.y * (frustumSize) / 2
 
         const rect =
             renderer.domElement.getBoundingClientRect()
@@ -280,6 +355,43 @@ window.addEventListener(
 /* ---------- RENDER ---------- */
 
 function animate() {
+    planets.forEach((planet) => {
+
+        const dx =
+            mouseWorld.x -
+            planet.position.x
+
+        const dy =
+            mouseWorld.y -
+            planet.position.y
+
+        const distance =
+            Math.sqrt(dx * dx + dy * dy)
+
+        const influenceRadius = 10
+
+        if (distance < influenceRadius) {
+            const force =
+                (influenceRadius - distance) /
+                influenceRadius
+
+            const targetX =
+                planet.userData.baseX +
+                dx * 0.12 * force
+
+            planet.position.x +=
+                (targetX - planet.position.x) *
+                0.08
+        }else {
+            planet.position.x +=
+                (planet.userData.baseX - planet.position.x) *
+                0.08
+        }
+    })
+
+    planets.forEach((planet) => {
+        planet.rotation.y += 0.002
+    })
 
     renderer.render(
         scene,
@@ -321,5 +433,6 @@ function animate() {
         }
     })
 }
+
 
 animate()

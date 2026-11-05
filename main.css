@@ -19,7 +19,9 @@ body {
         );
 
     color: white;
-    font-family: Arial, sans-serif;
+    font-family: "Share Tech Mono", monospace;
+    font-weight: 400;
+    font-style: normal;
 }
 
 /*----------NAVBAR -------------------*/
@@ -39,28 +41,21 @@ body {
 
 .planet-labels {
     position: fixed;
-
-    top: 105px;
-    right: 40px;
-
-    width: 450px;
-
+    top: 125px;
+    right: 10px;
+    width: 470px;
     display: flex;
     justify-content: space-between;
-
     color: white;
-
     font-size: 0.8rem;
-
     z-index: 10000;
-
     pointer-events: none;
 }
 /* ---------- HERO ---------- */
 
 #hero {
     position: relative;
-    height: 100vh;
+    height: 125vh;
     overflow: hidden;
 }
 
@@ -85,10 +80,18 @@ body {
 
 .hero-content h1 {
     font-size: 3rem;
+    font-weight: 390;
+}
+
+.hero-subtitle h3 {
+    padding: 1rem;
+    color: white;
+    font-family: inherit;
+    font-weight: inherit;
 }
 
 .hero-content p {
-    margin-top: 1rem;
+    margin-top: 2rem;
     font-size: 1.4rem;
     opacity: 0.8;
 }
@@ -96,15 +99,143 @@ body {
 /* ---------- CONTENT ---------- */
 
 #content {
-    min-height: 200vh;
-    background: white;
-    color: black;
-    padding: 100px 40px;
+    min-height: 100vh;
+    color: rgb(253, 250, 250);
+    padding: 20px 40px;
+     font-family: inherit;
+    font-weight: inherit;
 }
 
 .container {
     max-width: 1200px;
     margin: auto;
+}
+
+.wotw-card {
+    max-width: 1000px;
+    padding: 2rem;
+    border: 1px solid rgba(120, 205, 215, 0.4);
+    border-radius: 20px;
+    background: rgba(28, 18, 70, 0.55);
+    box-shadow: 0 0 24px rgba(78, 154, 201, 0.18);
+    backdrop-filter: blur(10px);
+    transition: box-shadow 250ms ease, border-color 250ms ease, transform 250ms ease;
+}
+
+.wotw-card:hover {
+    border-color: rgba(120, 205, 215, 0.8);
+    box-shadow: 0 0 18px rgba(120, 205, 215, 0.55), 0 0 42px rgba(78, 154, 201, 0.35);
+    transform: translateY(-3px);
+}
+
+.wotw-card h2 {
+    margin-bottom: 1rem;
+}
+
+.wotw-card-content {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.wotw-card-image {
+    display: block;
+    width: min(40%, 240px);
+    flex-shrink: 0;
+    max-height: 320px;
+    object-fit: cover;
+    border: 1px solid rgba(120, 205, 215, 0.4);
+    border-radius: 12px;
+}
+
+.wotw-card-text {
+    flex: 1;
+}
+
+.wotw-card-text h3 {
+    margin-bottom: 1rem;
+    line-height: 1.5;
+}
+
+.wotw-card-text h3 span {
+    display: block;
+    margin-top: 0.75rem;
+}
+
+.wotw-card-text p {
+    line-height: 1.7;
+}
+
+@media (max-width: 600px) {
+    .wotw-card-content {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .wotw-card-image {
+        width: min(100%, 240px);
+    }
+}
+
+.blog-related {
+    position: relative;
+    z-index: 1;
+    padding: 1rem 40px 6rem;
+    color: white;
+}
+
+.blog-related h3 {
+    margin-bottom: 0.5rem;
+}
+
+.blog-related .text-muted {
+    color: rgba(224, 242, 255, 0.7) !important;
+}
+
+.blog-related .card {
+    height: 100%;
+    overflow: hidden;
+    color: white;
+    background: rgba(28, 18, 70, 0.72);
+    border: 1px solid rgba(120, 205, 215, 0.3) !important;
+    border-radius: 16px;
+    box-shadow: 0 0 20px rgba(78, 154, 201, 0.14) !important;
+    backdrop-filter: blur(10px);
+    transition: transform 250ms ease, box-shadow 250ms ease, border-color 250ms ease;
+}
+
+.blog-related .card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(120, 205, 215, 0.75) !important;
+    box-shadow: 0 0 18px rgba(120, 205, 215, 0.35), 0 0 36px rgba(78, 154, 201, 0.25) !important;
+}
+
+.blog-related .card-img-top {
+    height: 190px;
+    object-fit: cover;
+}
+
+.blog-related .badge {
+    color: white !important;
+    background: rgba(78, 154, 201, 0.4) !important;
+    border: 1px solid rgba(120, 205, 215, 0.45);
+}
+
+.blog-related .btn-outline-dark {
+    color: white;
+    border-color: rgba(120, 205, 215, 0.65);
+}
+
+.blog-related .btn-outline-dark:hover {
+    color: #10152d;
+    background: rgba(120, 205, 215, 0.9);
+    border-color: rgba(120, 205, 215, 0.9);
+}
+
+@media (max-width: 600px) {
+    .blog-related {
+        padding: 2rem 20px 4rem;
+    }
 }
 
 /*-----------GLASS BUTTON ------------*/
@@ -128,12 +259,19 @@ body {
 
 /* Button Wrap Container */
 .button-wrap {
-  position: relative;
-  z-index: 2;
-  border-radius: 50px;
-  background: transparent;
-  pointer-events: none;
-  transition: all var(--anim--hover-time) var(--anim--hover-ease);
+    position: relative;
+    display: inline-block;
+    width: fit-content;
+
+    z-index: 2;
+
+    border-radius: 50px;
+
+    background: transparent;
+
+    pointer-events: none;
+
+    transition: all var(--anim--hover-time) var(--anim--hover-ease);
 }
 
 /* Button Shadow Container */
@@ -175,10 +313,12 @@ body {
 
 /* ========== BUTTON BASE STYLES ========== */
 
-button {
+button,
+.button-link {
   /* Basic Styling */
   --border-width: clamp(1px, 0.0625em, 4px);
   all: unset;
+  display: inline-block;
   cursor: pointer;
   position: relative;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
@@ -203,7 +343,8 @@ button {
   transition: all var(--anim--hover-time) var(--anim--hover-ease);
 }
 
-button:hover {
+button:hover,
+.button-link:hover {
   transform: scale(0.975);
   backdrop-filter: blur(0.01em);
   -webkit-backdrop-filter: blur(0.01em);
@@ -217,14 +358,14 @@ button:hover {
 }
 
 /* Button Text */
-button span {
+button span,
+.button-link span {
   position: relative;
   display: block;
   user-select: none;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
-  font-family: "Inter", sans-serif;
   letter-spacing: -0.05em;
   font-weight: 500;
   font-size: 1em;
@@ -237,12 +378,14 @@ button span {
   padding-block: 0.875em;
 }
 
-button:hover span {
+button:hover span,
+.button-link:hover span {
   text-shadow: 0.025em 0.025em 0.025em rgba(0, 0, 0, 0.12);
 }
 
 /* Text */
-button span::after {
+button span::after,
+.button-link span::after {
   content: "";
   display: block;
   position: absolute;
@@ -271,11 +414,13 @@ button span::after {
     --angle-2 calc(var(--anim--hover-time) * 1.25) var(--anim--hover-ease);
 }
 
-button:hover span::after {
+button:hover span::after,
+.button-link:hover span::after {
   background-position: 25% 50%;
 }
 
-button:active span::after {
+button:active span::after,
+.button-link:active span::after {
   background-position: 50% 15%;
   --angle-2: -15deg;
 }
@@ -283,7 +428,9 @@ button:active span::after {
 /* Touch Devices */
 @media (hover: none) and (pointer: coarse) {
   button span::after,
-  button:active span::after {
+  button:active span::after,
+  .button-link span::after,
+  .button-link:active span::after {
     --angle-2: -45deg;
   }
 }
@@ -291,7 +438,8 @@ button:active span::after {
 /* ========== BUTTON OUTLINE ========== */
 
 /* Outline */
-button::after {
+button::after,
+.button-link::after {
   content: "";
   position: absolute;
   z-index: 1;
@@ -319,24 +467,30 @@ button::after {
   box-shadow: inset 0 0 0 calc(var(--border-width) / 2) rgba(255, 255, 255, 0.5);
 }
 
-button:hover::after {
+button:hover::after,
+.button-link:hover::after {
   --angle-1: -125deg;
 }
 
-button:active::after {
+button:active::after,
+.button-link:active::after {
   --angle-1: -75deg;
 }
 
 @media (hover: none) and (pointer: coarse) {
   button::after,
   button:hover::after,
-  button:active::after {
+  button:active::after,
+  .button-link::after,
+  .button-link:hover::after,
+  .button-link:active::after {
     --angle-1: -75deg;
   }
 }
 
 /* Shadow Hover */
-.button-wrap:has(button:hover) .button-shadow {
+.button-wrap:has(button:hover) .button-shadow,
+.button-wrap:has(.button-link:hover) .button-shadow {
   filter: blur(clamp(2px, 0.0625em, 6px));
   -webkit-filter: blur(clamp(2px, 0.0625em, 6px));
   -moz-filter: blur(clamp(2px, 0.0625em, 6px));
@@ -344,17 +498,20 @@ button:active::after {
   transition: filter var(--anim--hover-time) var(--anim--hover-ease);
 }
 
-.button-wrap:has(button:hover) .button-shadow::after {
+.button-wrap:has(button:hover) .button-shadow::after,
+.button-wrap:has(.button-link:hover) .button-shadow::after {
   top: calc(var(--shadow-cuttoff-fix) - 0.875em);
   opacity: 1;
 }
 
 /* Rotation */
-.button-wrap:has(button:active) {
+.button-wrap:has(button:active),
+.button-wrap:has(.button-link:active) {
   transform: rotate3d(1, 0, 0, 25deg);
 }
 
-.button-wrap:has(button:active) button {
+.button-wrap:has(button:active) button,
+.button-wrap:has(.button-link:active) .button-link {
   box-shadow: inset 0 0.125em 0.125em rgba(0, 0, 0, 0.05),
     inset 0 -0.125em 0.125em rgba(255, 255, 255, 0.5),
     0 0.125em 0.125em -0.125em rgba(0, 0, 0, 0.2),
@@ -364,18 +521,47 @@ button:active::after {
     inset 0 0.25em 0.05em 0 rgba(0, 0, 0, 0.15);
 }
 
-.button-wrap:has(button:active) .button-shadow {
+.button-wrap:has(button:active) .button-shadow,
+.button-wrap:has(.button-link:active) .button-shadow {
   filter: blur(clamp(2px, 0.125em, 12px));
   -webkit-filter: blur(clamp(2px, 0.125em, 12px));
   -moz-filter: blur(clamp(2px, 0.125em, 12px));
   -ms-filter: blur(clamp(2px, 0.125em, 12px));
 }
 
-.button-wrap:has(button:active) .button-shadow::after {
+.button-wrap:has(button:active) .button-shadow::after,
+.button-wrap:has(.button-link:active) .button-shadow::after {
   top: calc(var(--shadow-cuttoff-fix) - 0.5em);
   opacity: 0.75;
 }
 
-.button-wrap:has(button:active) span {
+.button-wrap:has(button:active) span,
+.button-wrap:has(.button-link:active) span {
   text-shadow: 0.025em 0.25em 0.05em rgba(0, 0, 0, 0.12);
+}
+
+/* Profile Button */
+.profile-button {
+    position: fixed;
+    top: 40px;
+    left: 20px;
+    width: 78px;
+    height: 78px;
+    border-radius: 50%;
+    overflow: hidden;
+    display: block;
+    z-index: 1000;
+    border: 2px solid white;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
+    transition: transform 0.2s ease;
+}
+
+.profile-button img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.profile-button:hover {
+    transform: scale(1.1);
 }

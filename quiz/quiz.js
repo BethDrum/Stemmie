@@ -10,7 +10,9 @@ const questions = [
     "dataAnswer": "Mathematics",
     "dataTotal": "4",
     "managementAnswer": "Business",
-    "managementTotal": "5"
+    "managementTotal": "5",
+    "cyberAnswer": "English",
+    "cyberTotal": "6",
   },
   {
     "question": "What is your ideal work environment?",
@@ -23,7 +25,9 @@ const questions = [
     "dataAnswer": "On my own",
     "dataTotal": "4",
     "managementAnswer": "On the move",
-    "managementTotal": "5"
+    "managementTotal": "5",
+    "cyberAnswer": "A high-tech security operations centre",
+    "cyberTotal": "6"
   },
   {
     "question": "What do you like to do in your spare time?",
@@ -36,7 +40,9 @@ const questions = [
     "dataAnswer": "Watching TV",
     "dataTotal": "4",
     "managementAnswer": "Reading",
-    "managementTotal": "5"
+    "managementTotal": "5",
+    "cyberAnswer": "Solving mysteries and finding hidden clues",
+    "cyberTotal": "6"
   },
   {
     "question": "What describes you best?",
@@ -49,7 +55,9 @@ const questions = [
     "dataAnswer": "I like analyzing data and finding patterns",
     "dataTotal": "4",
     "managementAnswer": "I enjoy leading teams and making decisions",
-    "managementTotal": "5"
+    "managementTotal": "5",
+    "cyberAnswer": "I'm curious, observant and love figuring out how things work",
+    "cyberTotal": "6"
   },
   {
     "question": "What do you find most satisfying?",
@@ -62,7 +70,9 @@ const questions = [
     "dataAnswer": "Organising and interpreting data",
     "dataTotal": "4",
     "managementAnswer": "Turning small ideas into big results",
-    "managementTotal": "5"
+    "managementTotal": "5",
+    "cyberAnswer": "Protecting people and stopping cyber attacks",
+    "cyberTotal": "6"
   },
   {
     "question": "How would your friends describe you?",
@@ -75,7 +85,9 @@ const questions = [
     "dataAnswer": "Detail-oriented and logical",
     "dataTotal": "4",
     "managementAnswer": "Confident and decisive",
-    "managementTotal": "5"
+    "managementTotal": "5",
+    "cyberAnswer": "Resourceful, curious and alert",
+    "cyberTotal": "6"
   },
   {
     "question": "What is most important to you?",
@@ -88,28 +100,32 @@ const questions = [
     "dataAnswer": "Always keep learning and improving my skills",
     "dataTotal": "4",
     "managementAnswer": "Interacting with people and leading ideas",
-    "managementTotal": "5"
+    "managementTotal": "5",
+    "cyberAnswer": "Making the digital world a safer place",
+    "cyberTotal": "6"
   }
-]
+];
 
-const categories = ['ux', 'engineering', 'ai', 'data', 'management'];
+const categories = ['ux', 'engineering', 'ai', 'data', 'management', 'cyber'];
 const categoryNames = {
   ux: 'UX design',
   engineering: 'Engineering',
   ai: 'Artificial intelligence',
   data: 'Data science',
-  management: 'Technology management'
+  management: 'Technology management',
+  cyber: 'Cybersecurity'
 };
 const categoryDescriptions = {
   ux: 'You are best suited to UX.',
   engineering: 'You are best suited to Engineering.',
   ai: 'You are best suited to Artificial Intelligence.',
   data: 'You are best suited to Data Science.',
-  management: 'You are best suited to Technology Management.'
+  management: 'You are best suited to Technology Management.',
+  cyber: 'You are best suited to Cybersecurity.'
 };
 const optionLabels = document.querySelectorAll('.option span');
 const optionInputs = document.querySelectorAll('input[name="option"]');
-const container = document.querySelector('.quiz-container');
+const container = document.querySelector('.wotw-card');
 const questionEl = document.querySelector('.question');
 const nextButton = document.querySelector('.next');
 const previousButton = document.querySelector('.previous');
@@ -117,6 +133,7 @@ const result = document.querySelector('.result');
 const totalQuestions = questions.length;
 let currentQuestion = 0;
 let selectedAnswersData = [];
+result.hidden = true;
 
 function generateQuestion(index) {
   const question = questions[index];
@@ -129,7 +146,7 @@ function generateQuestion(index) {
   });
 
   previousButton.disabled = index === 0;
-  nextButton.textContent = index === totalQuestions - 1 ? 'See result' : 'Next';
+  nextButton.querySelector('span').textContent = index === totalQuestions - 1 ? 'See result' : 'Next';
 }
 
 function showResult() {
@@ -138,16 +155,17 @@ function showResult() {
   const highestScore = Math.max(...Object.values(scores));
   const bestMatches = categories.filter(category => scores[category] === highestScore);
   const matchNames = bestMatches.map(category => categoryNames[category]).join(' and ');
-  const matchDescriptions = bestMatches
-    .map(category => `<p>${categoryDescriptions[category]}</p>`)
-    .join('');
+  const resultSentence = bestMatches.length > 1
+    ? `You are equally suited to ${matchNames}.`
+    : categoryDescriptions[bestMatches[0]];
 
   container.hidden = true;
+  result.hidden = false;
   result.innerHTML = `
-    <h1>Your best match: ${matchNames}</h1>
-    ${matchDescriptions}
+    <h1>${resultSentence}</h1>
     <button class="restart" type="button">Restart quiz</button>
   `;
+  result.scrollIntoView({ behavior: 'smooth', block: 'start' });
 }
 
 function loadNextQuestion() {
@@ -182,6 +200,7 @@ function restartQuiz() {
   currentQuestion = 0;
   selectedAnswersData = [];
   result.replaceChildren();
+  result.hidden = true;
   container.hidden = false;
   generateQuestion(currentQuestion);
 }

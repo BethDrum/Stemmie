@@ -5,17 +5,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Space Landing Page</title>
 
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Literata:ital,opsz@0,7..72;1,7..72&family=Share+Tech+Mono&display=swap" rel="stylesheet">
 </head>
 <body>
+
+    <!-- Profile Button -->
+    <a href="/profile/profile.html" class="profile-button" aria-label="Go to your profile">
+
+        <img src="pfp5.png" alt="Profile Picture">
+
+    </a>
+
     <div id="planet-nav"></div>
 
     <div class="planet-labels">
-        <span>Home</span>
-        <span>About</span>
-        <span>Projects</span>
-        <span>Contact</span>
+        <span id="home-label">Home</span>
+        <span id="about-label" style="margin-left: 10px;">The Blog</span>
+        <span id="projects-label" style="margin-left:30px">Quiz</span>
+        <span id="contact-label">Local Events</span>
+        <span id="contact-label">Community</span>
     </div>
+
+
 
     <!-- Hero Section -->
     <section id="hero">
@@ -24,11 +39,25 @@
 
         <div class="hero-content">
             <h1>Welcome to Stemmie</h1>
-            <div style="height: 5%"></div>
-           <div class="button-wrap">
-            <button>
+        <div class="hero-subtitle">
+            <h3>Stemmie is designed to help people throughout their STEM journey,
+                it is here to provide a place to ask questions free of judgement,
+                connect with people of similar interests and as a resource for learning.
+                Take the quiz below to find your place in the STEM universe!</h3>
+           <div style="height: 5%"></div>
+
+
+            <div class="button-wrap">
+            <a class="button-link" href="/quiz/quiz.html">
                 <span>Start the Quiz!</span>
-            </button>
+            </a>
+            <div class="button-shadow"></div>
+            </div>
+
+            <div class="button-wrap">
+            <a class="button-link" href="/InspoStars/inspoStars.html">
+                <span>Get Inspired!</span>
+            </a>
             <div class="button-shadow"></div>
             </div>
         </div>
@@ -38,23 +67,284 @@
     <!-- Normal Website Content -->
     <section id="content">
 
-        <div class="container">
-            <h2>About</h2>
-            <p>
-                This section contains normal website content.
-                No Three.js interactions happen here.
-            </p>
-
-            <p>
-                Add as many sections as you want.
-            </p>
-
+        <div class="container wotw-card">
+            <h2>Women of the Week</h2>
+            <div class="wotw-card-content">
+                <img
+                    class="wotw-card-image"
+                    src="Margaret_Hamilton.webp"
+                    alt="Margaret Hamilton standing beside a tall stack of Apollo program code listings"
+                >
+                <div class="wotw-card-text">
+                    <h3>
+                        “Looking back, we were the luckiest people in the world. There was no choice but to be pioneers; no time to be beginners.”
+                        <span>— Margaret H. Hamilton</span>
+                    </h3>
+                    <p>Margaret Hamilton was an American computer scientist. She was best know for leading the software engineering team at MIT,
+                        during Nasa's Apollo program. She worked at MIT for over 2 decades and helped forge new paths in computer science and engineering.
+                        She actually coined the term Software Engineer!</p>
+                </div>
+            </div>
         </div>
 
     </section>
 
-    <script type="module" src="particles.js"></script>
-    <script type="module" src="planetNav.js"></script>
+    <section id="blog-posts" class="blog-related">
+        <div class="container">
+            <div class="mb-4">
+
+                <h3 class="fw-bold mb-2">From our blog section</h3>
+
+                <div class="d-flex flex-wrap align-items-center gap-3">
+                    <p class="text-muted mb-0">
+                        Explore some of our other recent articles.
+                    </p>
+                    <a href="http://localhost:5173/blog/blog.html" class="btn btn-outline-dark">Visit the blog page</a>
+                </div>
+
+            </div>
+
+            <div id="blogCarousel" class="carousel slide" data-bs-ride="false">
+
+                <div class="carousel-inner">
+
+            <!-- Carousel Slide 1 -->
+            <div class="carousel-item active">
+                <div class="row g-4">
+
+                    <!-- Blog Card 1 -->
+                    <div class="col-md-4">
+                        <div class="card h-100 border-0 shadow-sm">
+                            <img src="images/blog1.jpg"
+                                class="card-img-top"
+                                alt="Blog image">
+
+                            <div class="card-body d-flex flex-column">
+                                <span class="badge bg-secondary align-self-start mb-3">
+                                    UX and Design
+                                </span>
+
+                                <h5 class="card-title fw-bold">
+                                    Figma for Beginners
+                                </h5>
+
+                                <p class="text-muted small">
+                                    By Pauline Jones | 4 min read
+                                </p>
+
+                                <p class="card-text">
+                                    A guide to those who want to start using
+                                    figma for UX design but don't know where to start.
+                                </p>
+
+                                <a href="#" class="btn btn-outline-dark mt-auto">
+                                    Read More
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Blog Card 2 -->
+                    <div class="col-md-4">
+                        <div class="card h-100 border-0 shadow-sm">
+                            <img src="images/blog2.jpg"
+                                class="card-img-top"
+                                alt="Blog image">
+
+                            <div class="card-body d-flex flex-column">
+                                <span class="badge bg-secondary align-self-start mb-3">
+                                    Software Engineering
+                                </span>
+
+                                <h5 class="card-title fw-bold">
+                                    What language should you be starting with?
+                                </h5>
+
+                                <p class="text-muted small">
+                                    By Jane Smith | 6 min read
+                                </p>
+
+                                <p class="card-text">
+                                    Java, C, Python? With so many languages
+                                    out there, Jane will give you a helping
+                                    hand in choosing what's best for you.
+                                </p>
+
+                                <a href="#" class="btn btn-outline-dark mt-auto">
+                                    Read More
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Blog Card 3 -->
+                    <div class="col-md-4">
+                        <div class="card h-100 border-0 shadow-sm">
+                            <img src="images/blog3.jpg"
+                                class="card-img-top"
+                                alt="Blog image">
+
+                            <div class="card-body d-flex flex-column">
+                                <span class="badge bg-secondary align-self-start mb-3">
+                                    Project Management
+                                </span>
+
+                                <h5 class="card-title fw-bold">
+                                    Leadership Top Tips
+                                </h5>
+
+                                <p class="text-muted small">
+                                    By Amy Jackson | 3 min read
+                                </p>
+
+                                <p class="card-text">
+                                    How to lead a team effectively from
+                                    one of the greatest leaders in STEM.
+                                </p>
+
+                                <a href="#" class="btn btn-outline-dark mt-auto">
+                                    Read More
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+
+            <!-- Carousel Slide 2 -->
+            <div class="carousel-item">
+                <div class="row g-4">
+
+                    <!-- Blog Card 4 -->
+                    <div class="col-md-4">
+                        <div class="card h-100 border-0 shadow-sm">
+                            <img src="images/blog4.jpg"
+                                class="card-img-top"
+                                alt="Blog image">
+
+                            <div class="card-body d-flex flex-column">
+                                <span class="badge bg-secondary align-self-start mb-3">
+                                    Data Science
+                                </span>
+
+                                <h5 class="card-title fw-bold">
+                                    Data Visualisation - what does it mean?
+                                </h5>
+
+                                <p class="text-muted small">
+                                    By Abbie Mitchell | 5 min read
+                                </p>
+
+                                <p class="card-text">
+                                    Weekly spotlight piece highlighting a
+                                    lesser known part of computer science.
+                                </p>
+
+                                <a href="#" class="btn btn-outline-dark mt-auto">
+                                    Read More
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Blog Card 5 -->
+                    <div class="col-md-4">
+                        <div class="card h-100 border-0 shadow-sm">
+                            <img src="images/blog5.jpg"
+                                class="card-img-top"
+                                alt="Blog image">
+
+                            <div class="card-body d-flex flex-column">
+                                <span class="badge bg-secondary align-self-start mb-3">
+                                    AI
+                                </span>
+
+                                <h5 class="card-title fw-bold">
+                                    AI For The Scared
+                                </h5>
+
+                                <p class="text-muted small">
+                                    By Lois Coughlan | 7 min read
+                                </p>
+
+                                <p class="card-text">
+                                    AI seems to be everywhere, but what
+                                    actually is it? And should you be worried?.
+                                </p>
+
+                                <a href="#" class="btn btn-outline-dark mt-auto">
+                                    Read More
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Blog Card 6 -->
+                    <div class="col-md-4">
+                        <div class="card h-100 border-0 shadow-sm">
+                            <img src="images/blog6.jpg"
+                                class="card-img-top"
+                                alt="Blog image">
+
+                            <div class="card-body d-flex flex-column">
+                                <span class="badge bg-secondary align-self-start mb-3">
+                                    Cybersecurity
+                                </span>
+
+                                <h5 class="card-title fw-bold">
+                                    Network Security and You
+                                </h5>
+
+                                <p class="text-muted small">
+                                    By Craig Ramsay | 4 min read
+                                </p>
+
+                                <p class="card-text">
+                                    Would your password hold up against a
+                                    hacker? Learn how fast a hacker could get yours.
+                                </p>
+
+                                <a href="#" class="btn btn-outline-dark mt-auto">
+                                    Read More
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+
+        <!-- Carousel Navigation -->
+                <div class="d-flex justify-content-center gap-3 mt-4">
+
+                    <div class="button-wrap">
+                        <button type="button" data-bs-target="#blogCarousel" data-bs-slide="prev" aria-label="Previous blog posts">
+                            <span>Previous</span>
+                        </button>
+                        <div class="button-shadow"></div>
+                    </div>
+
+                    <div class="button-wrap">
+                        <button type="button" data-bs-target="#blogCarousel" data-bs-slide="next" aria-label="Next blog posts">
+                            <span>Next</span>
+                        </button>
+                        <div class="button-shadow"></div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script type="module" src="./particles.js"></script>
+    <script type="module" src="./planetNav.js"></script>
 
 </body>
 </html>
