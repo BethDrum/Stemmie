@@ -101,14 +101,14 @@ for (let i = 0; i < 12; i++) {
         new THREE.Sprite(
 
             new THREE.SpriteMaterial({
-                color: "#78CDD7"
+                color: "#FEFFE0"
             })
 
         );
 
     star.position.set(
         (Math.random() - 0.5) * 10,
-        (Math.random() - 0.5) * 5,
+        (Math.random() - 0.5) * 3,
         4
     );
 
@@ -239,7 +239,7 @@ function animate() {
 
             const targetScale =
                 star === selectedStar
-                    ? 1.5
+                    ? 1.0
                     : 0.3;
 
             star.scale.x +=

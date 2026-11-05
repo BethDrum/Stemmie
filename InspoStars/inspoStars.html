@@ -10,8 +10,16 @@
 </head>
 
 <body>
-    <canvas class="particles"></canvas>
     <canvas class="webgl"></canvas>
+    <div id="planet-nav"></div>
+
+    <div class="planet-labels">
+        <span id="home-label">Home</span>
+        <span id="about-label" style="margin-left: 10px;">The Blog</span>
+        <span id="projects-label" style="margin-left:30px">Quiz</span>
+        <span id="contact-label">Local Events</span>
+        <span id="contact-label">Community</span>
+    </div>
 
     <h1 class="page-title">
         Insparational Stars
@@ -27,6 +35,7 @@
         Click a bright star
     </div>
     <script type="module" src="./inspoStars.js"></script>
+    <script type="module" src="/planetNav.js"></script>
 </body>
 
 </html>

@@ -34,7 +34,7 @@ body {
 .page-title {
     position: fixed;
 
-    top: 50px;
+    top: 145px;
     left: 50%;
 
     transform: translateX(-50%);
@@ -58,7 +58,7 @@ body {
 .page-subtitle {
     position: fixed;
 
-    top: 95px;
+    top: 200px;
     left: 50%;
 
     transform: translateX(-50%);
