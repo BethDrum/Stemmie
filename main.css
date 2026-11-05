@@ -539,3 +539,29 @@ button:active::after,
 .button-wrap:has(.button-link:active) span {
   text-shadow: 0.025em 0.25em 0.05em rgba(0, 0, 0, 0.12);
 }
+
+/* Profile Button */
+.profile-button {
+    position: fixed;
+    top: 40px;
+    left: 20px;
+    width: 78px;
+    height: 78px;
+    border-radius: 50%;
+    overflow: hidden;
+    display: block;
+    z-index: 1000;
+    border: 2px solid white;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
+    transition: transform 0.2s ease;
+}
+
+.profile-button img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.profile-button:hover {
+    transform: scale(1.1);
+}
